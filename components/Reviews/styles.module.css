@@ -1,0 +1,18 @@
+
+.scrollStyle::-webkit-scrollbar {
+    width: 5px;
+  }
+  
+  .scrollStyle::-webkit-scrollbar-track {
+    background-color: #e7e7e7; /* Arka plan rengi */
+    border-radius: 20px; /* Oval yapmak için */
+  }
+  
+  .scrollStyle::-webkit-scrollbar-thumb {
+    background-color: #bbbbbb; /* Scrollbar rengi */
+    border-radius: 20px; /* Oval yapmak için */
+  }
+
+  .scrollYOff{
+    scrollbar-width: none;
+  }

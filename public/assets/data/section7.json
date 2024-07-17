@@ -1,0 +1,170 @@
+[
+    {
+        "id":1,
+        "name":"RC",
+        "comment":"Very informative Doctor and staff great",
+        "profileImage":"/assets/images/head.png",
+        "numberOfStars":"5"
+    },
+    {
+        "id":2,
+        "name":"HB",
+        "comment":"The visit was great as usual and the service provided was excellent.",
+        "profileImage":"/assets/images/head.png",
+        "numberOfStars":"5"
+    },
+    {
+        "id":3,
+        "name":"EP ",
+        "comment":"Very informative Doctor and staff great",
+        "profileImage":"/assets/images/head.png",
+        "numberOfStars":"5"
+    },
+    {
+        "id":4,
+        "name":"LA ",
+        "comment":"Dr Avina , is excellent . She listens to everything you have to say , and makes changes accordingly . This is now our second year with her for both my son, daughter , wife and I .",
+        "profileImage":"/assets/images/head.png",
+        "numberOfStars":"5"
+    },
+    {
+        "id":5,
+        "name":"JR ",
+        "comment":"Everything went good.",
+        "profileImage":"/assets/images/head.png",
+        "numberOfStars":"5"
+    },
+    {
+        "id":6,
+        "name":"Julie Rodriguez ",
+        "comment":"Everything went good..the doctor was super nice nd he really paid attention when I was talking to him..the location was very nice",
+        "profileImage":"/assets/images/head.png",
+        "numberOfStars":"5"
+    },
+    {
+        "id":5,
+        "name":"JK ",
+        "comment":"Staff was friendly and courteous, knowledgeable and professional. Made everything very easy. Definitely recommended!",
+        "profileImage":"/assets/images/head.png",
+        "numberOfStars":"5"
+    },
+    {
+        "id":6,
+        "name":"LM ",
+        "comment":"good customer service. on time appointment. good equipment.",
+        "profileImage":"/assets/images/head.png",
+        "numberOfStars":"5"
+    },
+    {
+        "id":5,
+        "name":"CH ",
+        "comment":"Tried to call Dr Thomas, as reading up close is a challenges, wanting to know options. His assistant said he does not take patient calls. Not sure what to do, go to a different dr? I really like Dr Thomas.",
+        "profileImage":"/assets/images/head.png",
+        "numberOfStars":"5"
+    },
+    {
+        "id":6,
+        "name":"BM ",
+        "comment":"Both ladies that helped me so were so nice and kind. I am hard of hearing and I didn’t have to constantly remind them to speak up. It was a nice experience. dr Alyssa was super sweet and easy to work with.",
+        "profileImage":"/assets/images/head.png",
+        "numberOfStars":"5"
+    },
+    {
+        "id":5,
+        "name":"RR ",
+        "comment":"Thank you all for being so helpful and kind with Arlin and I! We will contact our insurance provider and get vision insurance coverage clarified asap. I found a lovely frame and progressive lenses that will be covered fully with the insurance. Even out of pocket price is very good. Arlin wants to get his glasses also. Shall keep you posted about the insurance plan.",
+        "profileImage":"/assets/images/head.png",
+        "numberOfStars":"5"
+    },
+    {
+        "id":6,
+        "name":"MK ",
+        "comment":"Great , been seeing your business for many years. Scott, good manager",
+        "profileImage":"/assets/images/head.png",
+        "numberOfStars":"5"
+    },
+    {
+        "id":1,
+        "name":"JN ",
+        "comment":"Staff was able to quickly schedule follow up appt. Dr Freese was patient with my concerns and follow up appt.",
+        "profileImage":"/assets/images/head.png",
+        "numberOfStars":"5"
+    },
+    {
+        "id":2,
+        "name":"JO ",
+        "comment":"Great experience",
+        "profileImage":"/assets/images/head.png",
+        "numberOfStars":"5"
+    },
+    {
+        "id":3,
+        "name":"JC ",
+        "comment":"Really enjoyed the visit. It was efficient and thorough.",
+        "profileImage":"/assets/images/head.png",
+        "numberOfStars":"5"
+    },
+    {
+        "id":4,
+        "name":"AK ",
+        "comment":"From the reception to Dr. Freeze, it was a great experience.",
+        "profileImage":"/assets/images/head.png",
+        "numberOfStars":"5"
+    },
+    {
+        "id":5,
+        "name":"KK ",
+        "comment":"The dr was very patient and focused on my issues. She was extremely pleasant and professional. I look forward to having the great continued care at my next office visit.",
+        "profileImage":"/assets/images/head.png",
+        "numberOfStars":"5"
+    },
+    {
+        "id":6,
+        "name":" PD",
+        "comment":"Dr. Dollar is very great at explaining everything and answers all my questions. The DNA group are very good at their job and very easy explaining also.",
+        "profileImage":"/assets/images/head.png",
+        "numberOfStars":"5"
+    },
+    {
+        "id":5,
+        "name":"Cassandra Gray ",
+        "comment":"The people are friendly and patient with me due to disabling. Come back for my family’s eye exam",
+        "profileImage":"/assets/images/head.png",
+        "numberOfStars":"5"
+    },
+    {
+        "id":6,
+        "name":"RG ",
+        "comment":"Good and smooth process",
+        "profileImage":"/assets/images/head.png",
+        "numberOfStars":"5"
+    },
+    {
+        "id":5,
+        "name":"CB ",
+        "comment":"The entire process was excellent. I was a walk-in and was expecting it to be a drag, that wasn’t the case in the least. Very friendly and helpful staff, and a wonderful experience with Dr Conati. I would highly recommend their services and I look forward to future visits.",
+        "profileImage":"/assets/images/head.png",
+        "numberOfStars":"5"
+    },
+    {
+        "id":6,
+        "name":"BS ",
+        "comment":"Professional staff, terrific doctor. Took time to listen to me! Very reassuring under stressful scenario!",
+        "profileImage":"/assets/images/head.png",
+        "numberOfStars":"5"
+    },
+    {
+        "id":5,
+        "name":" Tom Provencio ",
+        "comment":"The entire process was excellent. I was a walk-in and was expecting it to be a drag, that wasn’t the case in the least. Very friendly and helpful staff, and a wonderful experience with Dr Conati. I would highly recommend their services and I look forward to future visits.",
+        "profileImage":"/assets/images/head.png",
+        "numberOfStars":"5"
+    },
+    {
+        "id":6,
+        "name":"TZ ",
+        "comment":"Everyone was kind, helpful, explained what was going to happen. The doctor went over the results slowly and made sure I understood everything.",
+        "profileImage":"/assets/images/head.png",
+        "numberOfStars":"5"
+    }
+]
