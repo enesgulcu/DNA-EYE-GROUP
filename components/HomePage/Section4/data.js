@@ -21,7 +21,7 @@ export const data = [
         "bgClass":"bg-otherFea4",
         "title":"Myopia Control",
         "cardImg":"/assets/images/othercard4.png",
-        "cardText":"We offer myopia control to slow nearsightedness with Misight and atropine."
+        "cardText":"We offer FDA approved treatment options to control, slow down, or , in some cases, fully stop myopia progression for kids and teens."
     },
     {
         "id":3,
@@ -29,6 +29,6 @@ export const data = [
         "bgClass":"bg-otherFea3",
         "title":"Keratoconus Treatments",
         "cardImg":"/assets/images/othercard3.png",
-        "cardText":"Lorem ipsum dolor sit amet  consectetur."
+        "cardText":"We offer specialty contact lens fitting to manage and treat various types of Keratoconus cases."
     }
 ]

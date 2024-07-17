@@ -15,7 +15,7 @@ function Section4() {
           <span data-aos="fade-left" className="text-redTitle ml-10 mt-[-20px]">Treatments</span>
         </h1>
       </div>
-      <div className="flex  flex-col md:flex-row justify-evenly md:space-x-3 ">
+      <div className="grid md:grid-cols-2 xl:grid-cols-4 md:space-x-3 ">
         {data.map((data) => (
           <div
             key={data.id}
