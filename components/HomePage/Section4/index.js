@@ -45,7 +45,7 @@ function Section4() {
               </div>
 
               <div
-                className={`text-[8px] md:text-sm  overflow-x-auto text-center max-h-10 `}
+                className={`text-[8px] md:text-sm  overflow-x-auto text-center lg:h-1/3`}
               >
                 {data.cardText}
               </div>
