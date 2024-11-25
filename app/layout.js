@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import ChatWidget from "@/components/ChatWidget";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -14,19 +15,19 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
 
-  
 
-  
+
+
   return (
     <html lang="en">
-    
-      <body className={inter.className}>
-        <Header  />
-      <Navbar  />
-      { children}
 
-      <Footer />
-      
+      <body className={inter.className}>
+        <Header />
+        <Navbar />
+        {children}
+        <Footer />
+
+        <ChatWidget />
       </body>
     </html>
   );
