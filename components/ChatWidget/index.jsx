@@ -87,6 +87,7 @@ function ChatWidget() {
 
   useEffect(() => {
     // five9 stillerini head e ekler
+
     const styleTag = document.createElement("style");
     styleTag.innerHTML = `
         .five9-chat-button {
@@ -101,6 +102,9 @@ function ChatWidget() {
         }
         #five9-minimize-icon {
             margin: 0px 0px 0px 90px !important;
+        }
+        .five9-frame {
+            right: 10px !important; 
         }
     `;
     document.head.appendChild(styleTag);
@@ -132,7 +136,9 @@ function ChatWidget() {
     };
   }, []);
 
-  return <div id="five9-widget-container" ref={widgetContainer}></div>;
+  return (
+    <div id="five9-widget-container" className=" " ref={widgetContainer}></div>
+  );
 }
 
 export default ChatWidget;
