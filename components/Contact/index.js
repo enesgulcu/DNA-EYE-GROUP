@@ -1,15 +1,15 @@
 "use client"
-import React,{useEffect} from "react";
+import React, { useEffect } from "react";
 import { data } from "./data";
 import Link from "next/link";
 import Aos from "aos";
 import 'aos/dist/aos.css'
 
 function Contact() {
-  useEffect(()=> {
+  useEffect(() => {
     Aos.init()
-  },[])
-  
+  }, [])
+
   return (
     <div className="mt-[100px] flex flex-col justify-center items-center overflow-hidden">
       <div className=" text-4xl text-darkRed font-[500] mb-32">
@@ -37,14 +37,14 @@ function Contact() {
                 </span>
               </div>
             </Link>
-          <Link href={item.bookLink}>
-          <div data-aos="fade-up" className="  h-14 flex items-center justify-center mt-2">
-              <button className=" px-4 py-2 rounded-full bg-redTitle bg-opacity-90 hover:bg-opacity-100 text-white">
-                Schedule Exam
-              </button>
-            </div>
-          </Link>
-            
+            <Link href={item.bookLink}>
+              <div data-aos="fade-up" className="  h-14 flex items-center justify-center mt-2">
+                <button className=" px-4 py-2 rounded-full bg-redTitle bg-opacity-90 hover:bg-opacity-100 text-white">
+                  Schedule Exam
+                </button>
+              </div>
+            </Link>
+
             <div data-aos="fade-up" className="mt-2 text-center hover:underline cursor-pointer">
               Phone:<span>{item.phone}</span>
             </div>
@@ -72,7 +72,7 @@ function Contact() {
           </div>
         ))}
       </div>
-      <div class="relative flex flex-col md:flex-row  justify-center items-center md:space-x-16 bg-cover bg-center h-[302px] mt-20  bg-[url('/assets/images/contactImage.jpeg')]  w-full ">
+      <div class="relative flex flex-col md:flex-row  justify-center items-center md:space-x-16 bg-cover bg-center h-[302px] mt-20  bg-[url('/assets/images/contactImage.webp')]  w-full ">
         <div className="absolute top-0 right-0 w-full h-full bg-blackBg bg-opacity-30" />
         <div className="z-30  text-white  text-center">
           <h1 data-aos="fade-right" className="text-4xl mb-3 font-[500]">Before your appointment</h1>
@@ -88,7 +88,7 @@ function Contact() {
       <div className=" py-20 mb-20  bg-grayBg w-full flex justify-center items-center  ">
         <div className="grid md:grid-cols-2 grid-cols-1 gap-4 justify-center items-center  w-[70%]">
           <div >
-            
+
             <div data-aos="fade-right" className="text-black md:text-4xl text-2xl">
               <span>
                 Feel free to call or email us with any questions/comments you may have
@@ -96,7 +96,7 @@ function Contact() {
             </div>
             <div data-aos="fade-left" className="text-grayHead md:text-xl text-lg mt-5">
               <span>
-                 Please don’t submit sensitive medical information, we’ll
+                Please don’t submit sensitive medical information, we’ll
                 get that when we talk to you.
               </span>
             </div>
@@ -188,7 +188,7 @@ function Contact() {
                   for="checkbox-2"
                   className="ms-2 text-sm font-medium text-gray-500 "
                 >
-                I allow this website to store my submission so they can respond to my inquiry.
+                  I allow this website to store my submission so they can respond to my inquiry.
                 </label>
               </div>
               {/* Button */}

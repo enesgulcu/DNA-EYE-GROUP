@@ -30,21 +30,21 @@ function Reviews() {
       {chunkedData.map((chunk, index) => (
         <div key={index} className={`  pl-10   mt-10 md:ml-20 overflow-x-auto ${styles.scrollYOff}`}>
           <Swiper
-          breakpoints={{
-            340:{
-              slidesPerView:1,
-              spaceBetween:15
-            },
-            700:{
-              slidesPerView:3,
-              spaceBetween:15
-            }
-          }}
+            breakpoints={{
+              340: {
+                slidesPerView: 1,
+                spaceBetween: 15
+              },
+              700: {
+                slidesPerView: 3,
+                spaceBetween: 15
+              }
+            }}
             freeMode={true}
             pagination={{ clickable: true, }}
-      
-            
-           
+
+
+
           >
             {chunk.map((data, dataIndex) => (
               <SwiperSlide key={dataIndex} >
@@ -65,7 +65,7 @@ function Reviews() {
                       </div>
                     </div>
                     <div className="absolute top-0 right-0 mr-[-15px]">
-                      <img src="/assets/images/googleIcon.png" alt="google icon" className="w-12" />
+                      <img src="/assets/images/googleIcon.webp" alt="google icon" className="w-12" />
                     </div>
                   </div>
                   <div className={`overflow-x-auto max-h-24 text-sm mt-4 text-commetTxt ${styles.scrollStyle}`}>
@@ -73,10 +73,10 @@ function Reviews() {
                   </div>
                 </div>
               </SwiperSlide>
-              
+
             ))}
           </Swiper>
-          <hr className='mt-10 w-[98%]'/>
+          <hr className='mt-10 w-[98%]' />
         </div>
       ))}
     </div>
