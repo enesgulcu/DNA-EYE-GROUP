@@ -1,4 +1,3 @@
-import React from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { IoClose } from "react-icons/io5";
@@ -20,13 +19,16 @@ function Doctor({ openDoctorModal, goBack, handleCloseModal }) {
     validationSchema: Yup.object({
       firstName: Yup.string().required("First name is required"),
       lastName: Yup.string().required("Last name is required"),
-      email: Yup.string().email("Invalid email address").required("Email is required"),
+      email: Yup.string()
+        .email("Invalid email address")
+        .required("Email is required"),
       address: Yup.string().required("Address is required"),
-      phone: Yup.string().matches(/^\d{3}-\d{3}-\d{4}$/, "Invalid phone number").required("Phone number is required"),
+      phone: Yup.string()
+        .matches(/^\d{3}-\d{3}-\d{4}$/, "Invalid phone number")
+        .required("Phone number is required"),
     }),
     onSubmit: (values) => {
       // Submit logic here
-      console.log(values);
     },
   });
 
@@ -42,7 +44,10 @@ function Doctor({ openDoctorModal, goBack, handleCloseModal }) {
       >
         <div className="bg-bodybg h-[80%]  rounded-lg shadow-md md:w-[40%] w-[80%] flex flex-col ">
           <div className="flex flex-row m-3 justify-between items-center">
-            <div onClick={goBack} className="  rounded-md p-[6px] text-xl  cursor-pointer  duration-700  transition-all bg-grayHead bg-opacity-20 hover:bg-redTitle text-redTitle hover:text-white  ">
+            <div
+              onClick={goBack}
+              className="  rounded-md p-[6px] text-xl  cursor-pointer  duration-700  transition-all bg-grayHead bg-opacity-20 hover:bg-redTitle text-redTitle hover:text-white  "
+            >
               <IoIosArrowBack />
             </div>
             <div onClick={handleCloseModal}>
@@ -61,7 +66,10 @@ function Doctor({ openDoctorModal, goBack, handleCloseModal }) {
           <div className="  text-center font-[500] text-2xl text-redTitle">
             <h2>Doctor</h2>
           </div>
-          <form onSubmit={formik.handleSubmit} className="max-w-md mx-auto space-y-7 p-5 ">
+          <form
+            onSubmit={formik.handleSubmit}
+            className="max-w-md mx-auto space-y-7 p-5 "
+          >
             {/*firstname lastname */}
             <div className="grid  md:grid-cols-2 md:gap-6">
               <div className="relative z-0 w-full mb-5 group">
@@ -73,7 +81,9 @@ function Doctor({ openDoctorModal, goBack, handleCloseModal }) {
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
                   className={`block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 ${
-                    formik.touched.firstName && formik.errors.firstName ? "border-red-500" : "border-gray-300"
+                    formik.touched.firstName && formik.errors.firstName
+                      ? "border-red-500"
+                      : "border-gray-300"
                   } appearance-none   focus:outline-none focus:ring-0 focus:border-redTitle peer`}
                   placeholder=" "
                   required
@@ -81,15 +91,21 @@ function Doctor({ openDoctorModal, goBack, handleCloseModal }) {
                 <label
                   htmlFor="firstName"
                   className={`peer-focus:font-medium absolute text-sm text-gray-500  duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] ${
-                    formik.values.firstName ? "peer-focus:start-0 rtl:peer-focus:translate-x-1/4" : ""
+                    formik.values.firstName
+                      ? "peer-focus:start-0 rtl:peer-focus:translate-x-1/4"
+                      : ""
                   } peer-focus:text-redTitle  ${
-                    formik.touched.firstName && formik.errors.firstName ? "text-red-500" : ""
+                    formik.touched.firstName && formik.errors.firstName
+                      ? "text-red-500"
+                      : ""
                   } peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6`}
                 >
                   First Name
                 </label>
                 {formik.touched.firstName && formik.errors.firstName ? (
-                  <div className="text-red-500 text-sm mt-1">{formik.errors.firstName}</div>
+                  <div className="text-red-500 text-sm mt-1">
+                    {formik.errors.firstName}
+                  </div>
                 ) : null}
               </div>
               <div className="relative z-0 w-full  group">
@@ -101,7 +117,9 @@ function Doctor({ openDoctorModal, goBack, handleCloseModal }) {
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
                   className={`block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 ${
-                    formik.touched.lastName && formik.errors.lastName ? "border-red-500" : "border-gray-300"
+                    formik.touched.lastName && formik.errors.lastName
+                      ? "border-red-500"
+                      : "border-gray-300"
                   } appearance-none  focus:outline-none focus:ring-0 focus:border-redTitle peer`}
                   placeholder=" "
                   required
@@ -109,15 +127,21 @@ function Doctor({ openDoctorModal, goBack, handleCloseModal }) {
                 <label
                   htmlFor="lastName"
                   className={`peer-focus:font-medium absolute text-sm text-gray-500  duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] ${
-                    formik.values.lastName ? "peer-focus:start-0 rtl:peer-focus:translate-x-1/4" : ""
+                    formik.values.lastName
+                      ? "peer-focus:start-0 rtl:peer-focus:translate-x-1/4"
+                      : ""
                   } peer-focus:text-redTitle  ${
-                    formik.touched.lastName && formik.errors.lastName ? "text-red-500" : ""
+                    formik.touched.lastName && formik.errors.lastName
+                      ? "text-red-500"
+                      : ""
                   } peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6`}
                 >
                   Last name
                 </label>
                 {formik.touched.lastName && formik.errors.lastName ? (
-                  <div className="text-red-500 text-sm mt-1">{formik.errors.lastName}</div>
+                  <div className="text-red-500 text-sm mt-1">
+                    {formik.errors.lastName}
+                  </div>
                 ) : null}
               </div>
             </div>
@@ -131,7 +155,9 @@ function Doctor({ openDoctorModal, goBack, handleCloseModal }) {
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
                 className={`block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 ${
-                  formik.touched.email && formik.errors.email ? "border-red-500" : "border-gray-300"
+                  formik.touched.email && formik.errors.email
+                    ? "border-red-500"
+                    : "border-gray-300"
                 } appearance-none  focus:outline-none focus:ring-0 focus:border-redTitle peer`}
                 placeholder=" "
                 required
@@ -139,15 +165,21 @@ function Doctor({ openDoctorModal, goBack, handleCloseModal }) {
               <label
                 htmlFor="email"
                 className={`peer-focus:font-medium absolute text-sm text-gray-500  duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] ${
-                  formik.values.email ? "peer-focus:start-0 rtl:peer-focus:translate-x-1/4" : ""
+                  formik.values.email
+                    ? "peer-focus:start-0 rtl:peer-focus:translate-x-1/4"
+                    : ""
                 } peer-focus:text-redTitle  ${
-                  formik.touched.email && formik.errors.email ? "text-red-500" : ""
+                  formik.touched.email && formik.errors.email
+                    ? "text-red-500"
+                    : ""
                 } peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6`}
               >
                 Email address
               </label>
               {formik.touched.email && formik.errors.email ? (
-                <div className="text-red-500 text-sm mt-1">{formik.errors.email}</div>
+                <div className="text-red-500 text-sm mt-1">
+                  {formik.errors.email}
+                </div>
               ) : null}
             </div>
             {/* address */}
@@ -160,7 +192,9 @@ function Doctor({ openDoctorModal, goBack, handleCloseModal }) {
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
                 className={`block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 ${
-                  formik.touched.address && formik.errors.address ? "border-red-500" : "border-gray-300"
+                  formik.touched.address && formik.errors.address
+                    ? "border-red-500"
+                    : "border-gray-300"
                 } appearance-none  focus:outline-none focus:ring-0 focus:border-redTitle peer`}
                 placeholder=" "
                 required
@@ -168,15 +202,21 @@ function Doctor({ openDoctorModal, goBack, handleCloseModal }) {
               <label
                 htmlFor="address"
                 className={`peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] ${
-                  formik.values.address ? "peer-focus:start-0 rtl:peer-focus:translate-x-1/4" : ""
+                  formik.values.address
+                    ? "peer-focus:start-0 rtl:peer-focus:translate-x-1/4"
+                    : ""
                 } peer-focus:text-redTitle  ${
-                  formik.touched.address && formik.errors.address ? "text-red-500" : ""
+                  formik.touched.address && formik.errors.address
+                    ? "text-red-500"
+                    : ""
                 } peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6`}
               >
                 Address
               </label>
               {formik.touched.address && formik.errors.address ? (
-                <div className="text-red-500 text-sm mt-1">{formik.errors.address}</div>
+                <div className="text-red-500 text-sm mt-1">
+                  {formik.errors.address}
+                </div>
               ) : null}
             </div>
             {/* phone number */}
@@ -189,7 +229,9 @@ function Doctor({ openDoctorModal, goBack, handleCloseModal }) {
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
                 className={`block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 ${
-                  formik.touched.phone && formik.errors.phone ? "border-red-500" : "border-gray-300"
+                  formik.touched.phone && formik.errors.phone
+                    ? "border-red-500"
+                    : "border-gray-300"
                 } appearance-none  focus:outline-none focus:ring-0 focus:border-redTitle peer`}
                 placeholder=" "
                 required
@@ -197,15 +239,21 @@ function Doctor({ openDoctorModal, goBack, handleCloseModal }) {
               <label
                 htmlFor="phone"
                 className={`peer-focus:font-medium absolute text-sm text-gray-500  duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] ${
-                  formik.values.phone ? "peer-focus:start-0 rtl:peer-focus:translate-x-1/4" : ""
+                  formik.values.phone
+                    ? "peer-focus:start-0 rtl:peer-focus:translate-x-1/4"
+                    : ""
                 } peer-focus:text-redTitle  ${
-                  formik.touched.phone && formik.errors.phone ? "text-red-500" : ""
+                  formik.touched.phone && formik.errors.phone
+                    ? "text-red-500"
+                    : ""
                 } peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6`}
               >
                 Phone number
               </label>
               {formik.touched.phone && formik.errors.phone ? (
-                <div className="text-red-500 text-sm mt-1">{formik.errors.phone}</div>
+                <div className="text-red-500 text-sm mt-1">
+                  {formik.errors.phone}
+                </div>
               ) : null}
             </div>
             {/* employment type */}
@@ -219,7 +267,10 @@ function Doctor({ openDoctorModal, goBack, handleCloseModal }) {
                   onChange={formik.handleChange}
                   className="w-4 h-4 text-redTitle bg-gray-100 border-gray-300 rounded focus:ring-redTitle  "
                 />
-                <label htmlFor="partTime" className="ms-2 text-sm font-medium text-gray-500 ">
+                <label
+                  htmlFor="partTime"
+                  className="ms-2 text-sm font-medium text-gray-500 "
+                >
                   Part time
                 </label>
               </div>
@@ -232,7 +283,10 @@ function Doctor({ openDoctorModal, goBack, handleCloseModal }) {
                   onChange={formik.handleChange}
                   className="w-4 h-4 text-redTitle bg-gray-100 border-gray-300 rounded focus:ring-redTitle  "
                 />
-                <label htmlFor="fullTime" className="ms-2 text-sm font-medium text-gray-500 ">
+                <label
+                  htmlFor="fullTime"
+                  className="ms-2 text-sm font-medium text-gray-500 "
+                >
                   Full time
                 </label>
               </div>

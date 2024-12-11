@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import { useState } from "react";
 import { IoClose } from "react-icons/io5";
 import { GoDash } from "react-icons/go";
 import Doctor from "./Doctor";
@@ -51,33 +51,80 @@ function ApplicationModal({ openApplicationModal, setOpenApplicationModal }) {
             </div>
           </div>
           <div className="p-4 mt-10 md:p-5">
-          <p className="text-grayHead text-xl text-center mb-16">Are you interested in a position within our group as an
-          optometrist or an optometric tech ?</p>
-          <ul className="space-y-8 mb-4">
-              <li  onClick={handleOpenDoctorModal}>
-                  <input type="radio" id="job-1" name="job" value="job-1" className="hidden peer" required />
-                  <label for="job-1" className="inline-flex items-center justify-between w-full p-5 text-redTitle bg-white border border-gray-200 rounded-lg cursor-pointer    hover:border-redTitle hover:border-2   hover:bg-gray-100 ">                           
-                      <div className="block">
-                          <div className="w-full text-lg font-semibold">Doctor</div>
-                         
-                      </div>
-                      <svg className="w-4 h-4 ms-3 rtl:rotate-180 text-redTitle " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/></svg>
-                  </label>
+            <p className="text-grayHead text-xl text-center mb-16">
+              Are you interested in a position within our group as an
+              optometrist or an optometric tech ?
+            </p>
+            <ul className="space-y-8 mb-4">
+              <li onClick={handleOpenDoctorModal}>
+                <input
+                  type="radio"
+                  id="job-1"
+                  name="job"
+                  value="job-1"
+                  className="hidden peer"
+                  required
+                />
+                <label
+                  htmlFor="job-1"
+                  className="inline-flex items-center justify-between w-full p-5 text-redTitle bg-white border border-gray-200 rounded-lg cursor-pointer    hover:border-redTitle hover:border-2   hover:bg-gray-100 "
+                >
+                  <div className="block">
+                    <div className="w-full text-lg font-semibold">Doctor</div>
+                  </div>
+                  <svg
+                    className="w-4 h-4 ms-3 rtl:rotate-180 text-redTitle "
+                    aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 14 10"
+                  >
+                    <path
+                      stroke="currentColor"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M1 5h12m0 0L9 1m4 4L9 9"
+                    />
+                  </svg>
+                </label>
               </li>
               <li onClick={handleOpenOptometrichTechModal}>
-                  <input type="radio" id="job-2" name="job" value="job-2" className="hidden peer"/>
-                  <label for="job-2" className="inline-flex items-center justify-between w-full p-5 text-redTitle bg-white border border-gray-200 rounded-lg cursor-pointer    hover:border-redTitle hover:border-2  hover:bg-gray-100 ">
-                      <div className="block">
-                          <div className="w-full text-lg font-semibold">Optometrich Tech</div>
-                      </div>
-                      <svg className="w-4 h-4 ms-3 rtl:rotate-180 text-redTitle " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/></svg>
-                  </label>
+                <input
+                  type="radio"
+                  id="job-2"
+                  name="job"
+                  value="job-2"
+                  className="hidden peer"
+                />
+                <label
+                  htmlFor="job-2"
+                  className="inline-flex items-center justify-between w-full p-5 text-redTitle bg-white border border-gray-200 rounded-lg cursor-pointer    hover:border-redTitle hover:border-2  hover:bg-gray-100 "
+                >
+                  <div className="block">
+                    <div className="w-full text-lg font-semibold">
+                      Optometrich Tech
+                    </div>
+                  </div>
+                  <svg
+                    className="w-4 h-4 ms-3 rtl:rotate-180 text-redTitle "
+                    aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 14 10"
+                  >
+                    <path
+                      stroke="currentColor"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M1 5h12m0 0L9 1m4 4L9 9"
+                    />
+                  </svg>
+                </label>
               </li>
-              
-          </ul>
-          
-      </div>
-
+            </ul>
+          </div>
         </div>
       </div>
       <Doctor
@@ -94,7 +141,8 @@ function ApplicationModal({ openApplicationModal, setOpenApplicationModal }) {
       />
     </>
   );
-  {/**<div className="  md:mt-[30%] mt-[60%] h-full">
+  {
+    /**<div className="  md:mt-[30%] mt-[60%] h-full">
             <div className="text-center font-semibold text-grayHead opacity-75 md:text-xl ">
               Are you interested in a position within our group as an
               optometrist or an optometric tech ?
@@ -113,7 +161,8 @@ function ApplicationModal({ openApplicationModal, setOpenApplicationModal }) {
                 Optometrich Tech
               </div>
             </div>
-          </div> */} 
+          </div> */
+  }
 }
 
 export default ApplicationModal;
