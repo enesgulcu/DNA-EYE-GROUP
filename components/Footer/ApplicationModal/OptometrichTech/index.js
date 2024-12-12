@@ -1,20 +1,18 @@
-import { useState } from "react";
 import { IoClose } from "react-icons/io5";
 import { GoDash } from "react-icons/go";
 import { IoIosArrowBack } from "react-icons/io";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import {
+  endLoadingNotification,
+  startLoadingNotification,
+} from "@/globalElements/toast";
 
 function OptometrichTech({
   openOptometrichTechModal,
   goBack,
   handleCloseModal,
 }) {
-  const [selectedFile, setSelectedFile] = useState(null);
-
-  const handleFileChange = (event) => {
-    setSelectedFile(event.target.files[0]);
-  };
   const formik = useFormik({
     initialValues: {
       firstName: "",
@@ -37,10 +35,68 @@ function OptometrichTech({
         .matches(/^\d{3}-\d{3}-\d{4}$/, "Invalid phone number")
         .required("Phone number is required"),
     }),
-    onSubmit: (values) => {
+    onSubmit: (values, { resetForm }) => {
       // Submit logic here
+
+      submitHandler(values, { resetForm });
     },
   });
+  const handleFileChange = (event) => {
+    formik.setFieldValue("cv", event.target.files[0]);
+  };
+
+  const submitHandler = async (values, { resetForm }) => {
+    var fileReader = new FileReader();
+
+    // Onload of file read the file content
+    fileReader.onload = async function (e) {
+      const base64 = e.target.result;
+      const attachments = [
+        {
+          filename: values.cv.name,
+          path: base64,
+        },
+      ];
+      const emailMessage = `
+    From Web, Carreer Oppurtunities (Optometrich Tech) Form:
+    Name: ${values.firstName},
+    Last Name: ${values.lastName},
+    Address: ${values.address},
+    Phone Number: ${values.phone},
+    Email: ${values.email},
+    Full time: ${values.fullTime ? "selected." : "not selected"},
+    Part time: ${values.fullTime ? "selected." : "not selected"}.
+    `;
+
+      const notification = startLoadingNotification("Sending Message...");
+      await fetch("/api/send-mail", {
+        method: "POST",
+        body: JSON.stringify({
+          emailMessage,
+          attachments,
+          subject: "Website - Carreer Oppurtunities (Doctor)",
+        }),
+      })
+        .then((resp) => resp.json())
+        .then((resp) => {
+          if (resp.success) {
+            endLoadingNotification(notification, "success", resp.message);
+            resetForm();
+          } else {
+            endLoadingNotification(
+              notification,
+              "error",
+              "Error!: " + resp.message
+            );
+          }
+        })
+        .catch((er) => {
+          endLoadingNotification(notification, "error", "Error!: " + er);
+        });
+    };
+    // Convert data to base64 and submit
+    fileReader.readAsDataURL(values.cv);
+  };
 
   return (
     <>
@@ -299,13 +355,17 @@ function OptometrichTech({
             </fieldset>
             {/* CV upload */}
             <div className="w-full">
-              <label htmlFor="file-upload" className="relative cursor-pointer">
+              <label
+                htmlFor="optom-file-upload"
+                className="relative cursor-pointer"
+              >
                 <span className="bg-white hover:bg-redTitle rounded-lg px-4 py-2 border border-gray-300 text-gray-500 hover:text-white">
                   {formik.values.cv ? formik.values.cv.name : "Upload CV"}
                 </span>
                 <input
-                  id="file-upload"
-                  name="file-upload"
+                  id="optom-file-upload"
+                  name="optom-file-upload"
+                  accept=".pdf, .doc, .docx"
                   type="file"
                   className="sr-only"
                   onChange={handleFileChange}

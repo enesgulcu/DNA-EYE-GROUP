@@ -1,24 +1,19 @@
 import { mailOptions, transporter } from "@/lib/nodemailer";
-import mailStringCheck from "@/util/mailStringCheck";
 
 const handler = async (req, res) => {
   if (req.method === "POST") {
     try {
-      const email = "firatkil.gerekli@gmail.com";
-      const { emailMessage, subject } = req.body;
+      const { emailMessage, subject, attachments } = JSON.parse(req.body);
 
-      if (
-        !email ||
-        !mailStringCheck(email) ||
-        email == "" ||
-        email == null ||
-        email == undefined
-      ) {
-        throw new Error("Lütfen girdiğiniz email adresini kontrol ediniz.");
-      }
+      // bkz. https://stackoverflow.com/questions/21934667/how-to-attach-file-to-an-email-with-nodemailer
+      //  attachment: {
+      //   filename: "image.jpg",
+      //   path: "./path/to/image.jpg",
+      // },
 
       const info = await transporter.sendMail({
         ...mailOptions,
+        attachments: attachments,
         subject: subject,
         text: emailMessage,
         to: process.env.RECEIVER_EMAIL,
