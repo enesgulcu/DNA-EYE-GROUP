@@ -88,7 +88,7 @@ function Footer() {
             onClick={handleOpenModalClick}
             className="mt-10 p-3 border rounded-full bg-redTitle bg-opacity-40 hover:bg-opacity-100 cursor-pointer text-center w-56"
           >
-            Career Opportunuties
+            Career Opportunities
           </div>
           <div className="flex space-x-3 mt-28 text-lg">
             <Link href="https://facebook.com/" target="_blank">
@@ -140,7 +140,7 @@ function Footer() {
               onClick={handleOpenModalClick}
               className="mt-3  p-3 border rounded bg-redTitle bg-opacity-40 text-grayIcon cursor-pointer text-center w-56"
             >
-              Career Opportunuties
+              Career Opportunities
             </div>
           </div>
         </div>
