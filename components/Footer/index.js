@@ -82,6 +82,11 @@ function Footer() {
                   Reviews
                 </p>
               </Link>
+              <Link href="/privacypolicy">
+                <p className="cursor-pointer hover:underline hover:text-darkRed">
+                  Privacy Policy
+                </p>
+              </Link>
             </div>
           </div>
           <div

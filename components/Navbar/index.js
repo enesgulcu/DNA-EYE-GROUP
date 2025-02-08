@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import AnimatedHamburgerButton from "./AnimatedHamburgerButton";
 import { MobileMenu } from "./MobileMenu";
@@ -28,21 +28,21 @@ function Navbar() {
       linkPath: "/reviews",
     },
     {
-      id: 4,
+      id: 5,
       name: "Contact Lens",
       linkPath: "/contact-lens",
     },
   ];
 
-  let sessionItem;
+  const sessionItemRef = useRef();
   useEffect(() => {
-    sessionItem = sessionStorage.getItem("selectedItem");
+    sessionItemRef.current = sessionStorage.getItem("selectedItem");
   }, []);
 
   const [selectedItem, setSelectedItem] = useState();
   useEffect(() => {
-    if (sessionItem) {
-      setSelectedItem(sessionItem);
+    if (sessionItemRef.current) {
+      setSelectedItem(sessionItemRef.current);
     } else {
       setSelectedItem("Home");
     }
