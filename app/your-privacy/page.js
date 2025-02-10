@@ -1,7 +1,7 @@
 import PrivacyPolicy from '../../components/PrivacyPolicy';
 
-function YourPrivacyPage() {
+function PrivacyPage() {
   return <PrivacyPolicy />;
 }
 
-export default YourPrivacyPage;
+export default PrivacyPage;
