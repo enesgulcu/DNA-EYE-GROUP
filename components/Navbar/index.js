@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import AnimatedHamburgerButton from "./AnimatedHamburgerButton";
 import { MobileMenu } from "./MobileMenu";
@@ -28,21 +28,21 @@ function Navbar() {
       linkPath: "/reviews",
     },
     {
-      id: 4,
+      id: 5,
       name: "Contact Lens",
       linkPath: "/contact-lens",
     },
   ];
 
-  let sessionItem;
+  const sessionItemRef = useRef();
   useEffect(() => {
-    sessionItem = sessionStorage.getItem("selectedItem");
+    sessionItemRef.current = sessionStorage.getItem("selectedItem");
   }, []);
 
   const [selectedItem, setSelectedItem] = useState();
   useEffect(() => {
-    if (sessionItem) {
-      setSelectedItem(sessionItem);
+    if (sessionItemRef.current) {
+      setSelectedItem(sessionItemRef.current);
     } else {
       setSelectedItem("Home");
     }
@@ -58,19 +58,16 @@ function Navbar() {
   const call = () => {
     window.location.href = `tel:${phoneNumber}`;
   };
-  const message = () => {
-    window.location.href = `https://wa.me/${phoneNumber}`;
-  };
 
   return (
-    <div className="flex justify-center h-20 bg-white  ">
-      <div className="flex relative justify-between  px-5 items-center md:w-full w-[90%]   bg-white   sm:px-6 mt-2 md:mt-0  ">
-        <div className="flex items-center w-[20%]  "></div>
-        <div className=" sm:flex space-x-5 ">
+    <div className="flex justify-center h-20 bg-white">
+      <div className="flex relative justify-between px-5 items-center md:w-full w-[90%] bg-white sm:px-6 mt-2 md:mt-0">
+        <div className="flex items-center w-[20%]"></div>
+        <div className="sm:flex space-x-5">
           {menuItems.map((item) => (
             <Link href={item.linkPath} key={item.linkPath}>
               <span
-                className={`text-grayHead cursor-pointer md:block hidden scale-90 hover:scale-100 hover:duration-500 duration-300  ${
+                className={`text-grayHead cursor-pointer md:block hidden scale-90 hover:scale-100 hover:duration-500 duration-300 ${
                   selectedItem === item.name
                     ? "border-b-2 pb-2 border-grayHead"
                     : ""
@@ -84,7 +81,7 @@ function Navbar() {
             </Link>
           ))}
         </div>
-        <div className=" flex sm:hidden border  rounded-lg bg-darkRed ">
+        <div className="flex sm:hidden border rounded-lg bg-darkRed">
           {/* Mobil cihazlarda menüyü açma/kapama butonu */}
           <AnimatedHamburgerButton active={active} setActive={setActive} />
         </div>
@@ -100,7 +97,7 @@ function Navbar() {
           </div>
         )}
         {/* Diğer cihazlarda görünen yardım butonu */}
-        <div className="md:flex hidden space-x-2 ">
+        <div className="md:flex hidden space-x-2">
           <Link href="/contact">
             <div className="hidden sm:flex justify-center cursor-pointer items-center space-x-2 text-grayIcon bg-grayHead border rounded-full px-5 py-2">
               <div className="text-xs scale-90 hover:scale-100 hover:duration-500 duration-300">
@@ -114,14 +111,6 @@ function Navbar() {
           >
             <div className="text-xs scale-90 hover:scale-100 hover:duration-500 duration-300">
               Call Center
-            </div>
-          </div>
-          <div
-            onClick={message}
-            className="hidden sm:flex justify-center cursor-pointer items-center space-x-2 text-grayIcon bg-grayHead border rounded-full px-5 py-2"
-          >
-            <div className="text-xs scale-90 hover:scale-100 hover:duration-500 duration-300">
-              Chat with us
             </div>
           </div>
         </div>
