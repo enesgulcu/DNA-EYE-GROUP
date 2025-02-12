@@ -17,26 +17,26 @@ function Section6() {
           <span data-aos="fade-left" className="text-redTitle ml-10 mt-[-20px]">Stories</span>
         </h1>
       </div>
-      <div class="hidden md:block container lg:px-32 px-4 py-8 mx-auto items-center ">
-        <div class="grid grid-cols-3  max-h-[700px] grid-rows-2 grid-flow-col gap-2">
+      <div className="hidden md:block container lg:px-32 px-4 py-8 mx-auto items-center ">
+        <div className="grid grid-cols-3  max-h-[700px] grid-rows-2 grid-flow-col gap-2">
           {data.map((item, index) => (
-            <div data-aos="zoom-in-up"  key={index} class={`${index === 4 ? " row-span-2" : ""}`}>
+            <div data-aos="zoom-in-up"  key={index} className={`${index === 4 ? " row-span-2" : ""}`}>
             <img
               src={item.path}
-              class=" h-full w-full object-cover object-center  "
+              className=" h-full w-full object-cover object-center  "
             />
           </div>
           ))}
           
         </div>
       </div>
-      <div class="block md:hidden container lg:px-32 px-4 py-8 mx-auto items-center ">
-      <div class="grid grid-cols-  max-h-[700px] grid-rows-3 grid-flow-col gap-2">
+      <div className="block md:hidden container lg:px-32 px-4 py-8 mx-auto items-center ">
+      <div className="grid grid-cols-  max-h-[700px] grid-rows-3 grid-flow-col gap-2">
         {data1.map((item, index) => (
-          <div data-aos="zoom-in-up"  key={index} class={` ${index === 2 ? "  col-span-2 h-32" : ""}`}>
+          <div data-aos="zoom-in-up"  key={index} className={` ${index === 2 ? "  col-span-2 h-32" : ""}`}>
           <img
             src={item.path}
-            class=" h-full w-full object-cover object-center  "
+            className=" h-full w-full object-cover object-center  "
           />
         </div>
         ))}
