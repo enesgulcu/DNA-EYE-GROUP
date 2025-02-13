@@ -76,12 +76,12 @@ function ContactLens() {
 
   return (
     <Container>
-      <div className=" py-20 mb-20  bg-grayBg w-full flex justify-center items-center  ">
-        <div className="grid md:grid-cols-2 grid-cols-1 gap-4 justify-center items-center  w-[70%]">
-          <div>
+      <div className=" py-20 mb-20 bg-grayBg w-full flex justify-center items-center ">
+        <div className="grid md:grid-cols-2 grid-cols-1 gap-4 md:gap-6 justify-center items-center w-[70%] md:w-[90%]">
+          <div className="">
             <div
               data-aos="fade-right"
-              className="text-black md:text-4xl text-2xl"
+              className="text-black lg:text-4xl md:text-3xl text-2xl"
             >
               <span>
                 Feel free to call or email us with any questions/comments you

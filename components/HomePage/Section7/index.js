@@ -15,6 +15,7 @@ import { FreeMode, Pagination } from "swiper/modules";
 import Aos from "aos";
 import "aos/dist/aos.css";
 import Container from "@/components/Container";
+import Image from "next/image";
 
 function Section7() {
   const scrollRef = useRef(null);
@@ -40,7 +41,7 @@ function Section7() {
 
         <div
           ref={scrollRef}
-          className={`flex   mt-10  ml-5 md:ml-20 overflow-x-auto ${styles.scrollYOff} `}
+          className={`md:px-8 lg:px-20 xl:px-40 mt-10 overflow-x-auto ${styles.scrollYOff} `}
         >
           <Swiper
             style={{
@@ -72,42 +73,47 @@ function Section7() {
           >
             {datas.map((data, index) => (
               <SwiperSlide key={index}>
-                <div className="bg-grayIcon  p-5    h-full items-center  rounded-2xl">
-                  <div className="flex w-full relative   items-center">
-                    <div className="mr-5">
-                      <img
+                <div className="flex flex-col p-5 h-full w-full items-center rounded-2xl">
+                  <div className="flex w-full items-center justify-center gap-2 lg:gap-3">
+                    <div className="w-[48px] h-[40px] relative overflow-hidden">
+                      <Image
                         src={data.profileImage}
-                        className="w-12 h-10 rounded-full"
-                        alt=""
+                        fill
+                        className="rounded-full object-cover"
+                        alt="profileImg"
                       />
                     </div>
-                    <div className="w-full  ">
-                      <div className="text-darkRed font-[500] uppercase text-md">
-                        <span className="font-lexend">{data.name}</span>{" "}
-                      </div>
-                      <div className="flex space-x-8  items-center">
-                        <div className="flex space-x-1 text-2xl text-starYellow">
+                    <div className="flex justify-between items-center w-full">
+                      <div className="flex flex-col items-start justify-center">
+                        <div className="font-lexend text-darkRed font-medium uppercase text-xs lg:text-sm w-max">
+                          {data.name}
+                        </div>
+                        <div className="flex text-xs md:text-base lg:text-lg xl:text-xl text-starYellow">
                           {[...Array(Number(data.numberOfStars))].map(
                             (_, i) => (
                               <IoIosStar key={i} />
                             )
                           )}
                         </div>
-                        <div className="text-commentTimeText text-xs">
+                        <div className="flex lg:hidden text-commentTimeText text-[10px] lg:text-xs">
                           4 hour ago
                         </div>
                       </div>
+                      <div className="lg:flex hidden text-commentTimeText text-[10px] lg:text-xs pl-1">
+                        4 hour ago
+                      </div>
                     </div>
-                    <div className="abosulte top-0 right-0 mr-[-15px]">
-                      <img
+                    <div className="rounded-full">
+                      <Image
                         src="/assets/images/googleIcon.webp"
                         alt="google icon"
-                        className="w-12"
+                        width={35}
+                        height={35}
                       />
                     </div>
                   </div>
                   <div
-                    className={`overflow-x-auto  max-h-24 text-sm mt-8 text-commetTxt ${styles.scrollStyle}`}
+                    className={`overflow-x-auto max-h-24 text-sm mt-8 text-commetTxt ${styles.scrollStyle}`}
                   >
                     <p>{data.comment}</p>
                   </div>
@@ -116,9 +122,8 @@ function Section7() {
             ))}
           </Swiper>
         </div>
-
         <div
-          className={`${styles.paginationButton} pagination mt-5 ml-20  space-x-1`}
+          className={`${styles.paginationButton} pagination mt-5 space-x-[1.5px] md:space-x-1 lg:space-x-2 px-5 sm:px-8 md:px-12 lg:px-24 xl:px-52`}
         />
       </div>
     </Container>

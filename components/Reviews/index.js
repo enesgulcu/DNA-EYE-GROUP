@@ -74,8 +74,11 @@ function Reviews() {
                                 )
                               )}
                             </div>
+                            <div className="flex lg:hidden text-commentTimeText text-[10px] lg:text-xs">
+                              4 hour ago
+                            </div>
                           </div>
-                          <div className="text-commentTimeText text-[10px] lg:text-xs pl-1">
+                          <div className="lg:flex hidden text-commentTimeText text-[10px] lg:text-xs pl-1">
                             4 hour ago
                           </div>
                         </div>
