@@ -1,7 +1,9 @@
 import React from 'react';
+import Container from '../Container';
 
 function Terms() {
     return (
+        <Container>
         <main className="min-h-screen">
             {/* Hero section with background */}
             <div className="bg-redTitle h-[270px] flex items-center justify-center relative">
@@ -118,6 +120,7 @@ function Terms() {
                 </p>
             </div>
         </main>
+        </Container>
     )
 }
 

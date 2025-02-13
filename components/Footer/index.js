@@ -5,6 +5,7 @@ import { BsTwitterX } from "react-icons/bs";
 
 import ApplicationModal from "./ApplicationModal";
 import Link from "next/link";
+import Container from "../Container";
 
 function Footer() {
   const [openApplicationModal, setOpenApplicationModal] = useState(false);
@@ -13,7 +14,7 @@ function Footer() {
     setOpenApplicationModal(!openApplicationModal);
   };
   return (
-    <>
+    <Container>
       <div
         className={`relative  bg-footer-bg-mobile md:bg-footer-bg bg-cover  h-[613px]  md:mt-32 ${openApplicationModal ? "blur-md" : ""
           }`}
@@ -139,7 +140,7 @@ function Footer() {
         openApplicationModal={openApplicationModal}
         setOpenApplicationModal={setOpenApplicationModal}
       />
-    </>
+    </Container>
   );
 }
 

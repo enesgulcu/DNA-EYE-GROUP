@@ -3,6 +3,7 @@ import React, { useEffect } from "react";
 import { data } from "./data";
 import Aos from "aos";
 import 'aos/dist/aos.css'
+import Container from "@/components/Container";
 
 function Section1() {
 
@@ -11,7 +12,7 @@ function Section1() {
   }, [])
 
   return (
-    <div>
+    <Container>
       <div className="relative md:p-0">
         <div className="p-4 flex justify-center items-center pt-10 md:mt-0 md:p-0 md:overflow-hidden">
           <img
@@ -67,7 +68,8 @@ function Section1() {
           </div>
         </div>
       </div>
-    </div>
+    </Container>
+    
   );
 }
 
