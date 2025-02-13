@@ -54,10 +54,10 @@ function Navbar() {
     sessionStorage.setItem("selectedItem", item);
   };
 
-  const phoneNumber = "+18774362393";
-  const call = () => {
-    window.location.href = `tel:${phoneNumber}`;
-  };
+  // const phoneNumber = "+18774362393";
+  // const call = () => {
+  //   window.location.href = `tel:${phoneNumber}`;
+  // };
 
   return (
     <div className="flex justify-center items-center h-20 bg-white">
@@ -105,14 +105,14 @@ function Navbar() {
               </span>
             </div>
           </Link>
-          <div
+          {/* <div
             onClick={call}
             className="hidden sm:flex justify-center cursor-pointer items-center space-x-2 text-grayIcon bg-grayHead border rounded-full px-5 py-2"
           >
             <div className="text-xs scale-90 hover:scale-100 hover:duration-500 duration-300">
               Call Center
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
