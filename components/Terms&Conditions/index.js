@@ -48,8 +48,8 @@ function Terms() {
             <div className="max-w-4xl mx-auto px-6 py-16">
                 <h2 className="text-2xl font-semibold mb-6 text-gray-800">CONTENT YOU SUBMIT</h2>
 
-                <p className="text-gray-600 leading-relaxed">
-                    When using this Site, you may have the opportunity to submit reviews or feedback regarding your experiences with us, and to participate in bulletin boards, chat areas, news groups, forums, communities, personal web pages, calendars, and/or other message or communication features designed to enable you to communicate with the public at large or with a group (collectively, &quot;Communication Services&quot;).
+                <div className="text-gray-600 leading-relaxed">
+                    When using this Site, you may have the odivportunity to submit reviews or feedback regarding your experiences with us, and to participate in bulletin boards, chat areas, news groups, forums, communities, personal web pages, calendars, and/or other message or communication features designed to enable you to communicate with the public at large or with a group (collectively, &quot;Communication Services&quot;).
                     You agree to use the Communication Services only to post, send, and receive messages and material that are proper and related to the particular Communication Service.
                     <br /><br />
                     By way of example, and not as a limitation, you agree that when using a Communication Service, you will not post content that contains:
@@ -76,7 +76,7 @@ function Terms() {
                         <li>Violate any code of conduct or other guidelines which may be applicable for any particular Communication Service.</li>
                         <li>Harvest or otherwise collect information about others, including e-mail addresses, without their consent.</li>
                     </ul>
-                </p>
+                </div>
             </div>
             <div className="max-w-4xl mx-auto px-6 py-16">
                 <p className="text-gray-600 leading-relaxed">
