@@ -142,32 +142,7 @@ function Team() {
           </div>
         </div>
       </div>
-      <div className="relative mt-20 h-[500px] bg-about1-bg bg-cover bg-center">
-        <div className="absolute top-0 right-0 w-full h-full bg-blackBg bg-opacity-35" />
-
-        <div className="flex justify-center items-center h-full">
-          <div className="md:w-[50%] w-[90%] flex flex-col z-30 text-center font-libre-bodoni">
-            <span
-              data-aos="fade-right"
-              className="text-white md:text-lg  font-[700] "
-            >
-              We are here to help!
-            </span>
-            <span
-              data-aos="fade-left"
-              className="text-white md:text-5xl text-2xl mt-5"
-            >
-              We’re a no-judgment zone, so feel free to come to us with any
-              questions or concerns.
-            </span>
-            <div data-aos="zoom-in">
-              <button className="mt-10 border p-3 rounded-full bg-redTitle bg-opacity-00 hover:bg-opacity-100 cursor-pointer text-white">
-                Book an Appointment
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
+      <div className="relative mt-20 h-[500px] bg-about1-bg bg-cover bg-center"></div>
     </div>
   );
 }
