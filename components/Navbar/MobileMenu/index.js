@@ -24,7 +24,7 @@ export function MobileMenu({menuItems,selectedItem,setSelectedItem,setActive}) {
               setSelectedItem(item.name);
               setActive(false);
             }}>
-            <Link href={item.linkPath} className={`${selectedItem === item.name ?"bg-blueEye  text-white" : "bg-grayBg text-grayHead"} block py-2 px-3 text-center font-bold font-libre-bodoni  rounded`} aria-current="page">{item.name}</Link>
+            <Link href={item.linkPath} className={`${selectedItem === item.name ?"bg-redTitle  text-white" : "bg-grayBg text-grayHead"} block py-2 px-3 text-center font-bold font-libre-bodoni  rounded`} aria-current="page">{item.name}</Link>
         </li>
           ))
         }
