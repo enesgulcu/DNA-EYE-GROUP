@@ -1,37 +1,17 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import AnimatedHamburgerButton from "./AnimatedHamburgerButton";
 import { MobileMenu } from "./MobileMenu";
 
 function Navbar() {
-  // Menü öğeleri listesi
   const menuItems = [
-    {
-      id: 1,
-      name: "Home",
-      linkPath: "/",
-    },
-    {
-      id: 2,
-      name: "About",
-      linkPath: "/about",
-    },
-    {
-      id: 3,
-      name: "Team",
-      linkPath: "/team",
-    },
-    {
-      id: 4,
-      name: "Reviews",
-      linkPath: "/reviews",
-    },
-    {
-      id: 5,
-      name: "Contact Lens",
-      linkPath: "/contact-lens",
-    },
+    { id: 1, name: "Home", linkPath: "/" },
+    { id: 2, name: "About", linkPath: "/about" },
+    { id: 3, name: "Team", linkPath: "/team" },
+    { id: 4, name: "Reviews", linkPath: "/reviews" },
+    { id: 5, name: "Contact Lens", linkPath: "/contact-lens" },
   ];
 
   const sessionItemRef = useRef();
@@ -62,7 +42,18 @@ function Navbar() {
   return (
     <div className="flex justify-center h-20 bg-white">
       <div className="flex relative justify-between px-5 items-center md:w-full w-[90%] bg-white sm:px-6 mt-2 md:mt-0">
-        <div className="flex items-center w-[20%]"></div>
+        {/* Logo added here */}
+        <div className="flex items-center w-[20%]">
+          <Link href="/">
+            <Image
+              src="/assets/images/eye-logo.png"
+              alt="DNA Eye Group Logo"
+              width={40}
+              height={40}
+              className="cursor-pointer hidden sm:block" // Hide on extra-small screens if needed
+            />
+          </Link>
+        </div>
         <div className="sm:flex space-x-5">
           {menuItems.map((item) => (
             <Link href={item.linkPath} key={item.linkPath}>
@@ -82,10 +73,9 @@ function Navbar() {
           ))}
         </div>
         <div className="flex sm:hidden border rounded-lg bg-darkRed">
-          {/* Mobil cihazlarda menüyü açma/kapama butonu */}
+          {/* Mobile menu toggle */}
           <AnimatedHamburgerButton active={active} setActive={setActive} />
         </div>
-        {/* Mobil cihazlarda menü tam ekran olarak açıldığında */}
         {active && (
           <div className="absolute top-0 left-0 mt-20 w-full md:hidden z-50">
             <MobileMenu
@@ -96,7 +86,6 @@ function Navbar() {
             />
           </div>
         )}
-        {/* Diğer cihazlarda görünen yardım butonu */}
         <div className="md:flex hidden space-x-2">
           <Link href="/contact">
             <div className="hidden sm:flex justify-center cursor-pointer items-center space-x-2 text-grayIcon bg-grayHead border rounded-full px-5 py-2">
