@@ -34,14 +34,14 @@ function Navbar() {
     sessionStorage.setItem("selectedItem", item);
   };
 
-  const phoneNumber = "+18774362393";
-  const call = () => {
-    window.location.href = `tel:${phoneNumber}`;
-  };
+  // const phoneNumber = "+18774362393";
+  // const call = () => {
+  //   window.location.href = `tel:${phoneNumber}`;
+  // };
 
   return (
-    <div className="flex justify-center h-20 bg-white">
-      <div className="flex relative justify-between px-5 items-center md:w-full w-[90%] bg-white sm:px-6 mt-2 md:mt-0">
+    <div className="flex justify-center items-center h-20 bg-white">
+      <div className="flex relative justify-between items-center md:w-full w-[90%] lg:gap-1 px-3 sm:px-6 mt-2 md:mt-0">
         {/* Logo added here */}
         <div className="flex items-center w-[20%]">
           <Link href="/">
@@ -54,7 +54,7 @@ function Navbar() {
             />
           </Link>
         </div>
-        <div className="sm:flex space-x-5">
+        <div className="sm:flex gap-2">
           {menuItems.map((item) => (
             <Link href={item.linkPath} key={item.linkPath}>
               <span
@@ -86,22 +86,22 @@ function Navbar() {
             />
           </div>
         )}
-        <div className="md:flex hidden space-x-2">
+        <div className="md:flex hidden ml-2 gap-1 lg:gap-2">
           <Link href="/contact">
             <div className="hidden sm:flex justify-center cursor-pointer items-center space-x-2 text-grayIcon bg-grayHead border rounded-full px-5 py-2">
-              <div className="text-xs scale-90 hover:scale-100 hover:duration-500 duration-300">
+              <span className="text-xs scale-90 hover:scale-100 hover:duration-500 duration-300">
                 Schedule Exam
-              </div>
+              </span>
             </div>
           </Link>
-          <div
+          {/* <div
             onClick={call}
             className="hidden sm:flex justify-center cursor-pointer items-center space-x-2 text-grayIcon bg-grayHead border rounded-full px-5 py-2"
           >
             <div className="text-xs scale-90 hover:scale-100 hover:duration-500 duration-300">
               Call Center
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

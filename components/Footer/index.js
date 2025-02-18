@@ -6,6 +6,7 @@ import { BsTwitterX } from "react-icons/bs";
 
 import ApplicationModal from "./ApplicationModal";
 import Link from "next/link";
+import Container from "../Container";
 
 function Footer() {
   const [openApplicationModal, setOpenApplicationModal] = useState(false);
@@ -14,7 +15,7 @@ function Footer() {
     setOpenApplicationModal(!openApplicationModal);
   };
   return (
-    <>
+    <Container>
       <div
         className={`relative bg-footer-bg-mobile md:bg-footer-bg bg-cover h-[613px] md:mt-32 ${
           openApplicationModal ? "blur-md" : ""
@@ -44,27 +45,7 @@ function Footer() {
           </div>
         </div>
 
-        <div className="hidden md:block absolute md:left-32 md:top-32 top-20 left-10 text-sm md:text-base text-grayIcon">
-          <div className="flex space-x-8 ">
-            <div>
-              <h1>REACH OUT</h1>
-            </div>
-            <div className="flex flex-col justify-between">
-              <p className="mb-2">dnaeyegroup@gmail.com</p>
-              <p className="mb-2 flex justify-between cursor-pointer">
-                <span>Phone:</span>{" "}
-                <span className="underline hover:text-darkRed">
-                  (480) 726-7009
-                </span>
-              </p>
-              <p className="flex justify-between cursor-pointer">
-                <span>Fax:</span>{" "}
-                <span className="underline hover:text-darkRed">
-                  (480) 786-9684
-                </span>
-              </p>
-            </div>
-          </div>
+        <div className=" hidden md:block absolute md:left-32 md:top-32 top-20 left-10 text-sm md:text-base text-grayIcon">
           <div className="flex space-x-8 mt-12 ">
             <div>
               <h1>ABOUT US</h1>
@@ -122,11 +103,8 @@ function Footer() {
               connect
             </h1>
           </div>
-          <div className="text-grayIcon text-center text-sm mt-5 space-y-3">
-            <div>fax:(480) 786-9684</div>
-            <div>Phone:(480) 726-7009</div>
-          </div>
-          <div className="mt-6">
+      
+          <div className="mt-6 ">
             <Link href="https://www.linkedin.com/">
               <div className="flex bg-linkedinLogo p-2 mb-4 text-grayIcon space-x-1 rounded">
                 <div className="mr-3">
@@ -185,7 +163,7 @@ function Footer() {
         openApplicationModal={openApplicationModal}
         setOpenApplicationModal={setOpenApplicationModal}
       />
-    </>
+    </Container>
   );
 }
 

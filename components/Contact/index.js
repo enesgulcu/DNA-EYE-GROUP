@@ -4,6 +4,7 @@ import { data } from "./data";
 import Link from "next/link";
 import Aos from "aos";
 import "aos/dist/aos.css";
+import Container from "../Container";
 
 function Contact() {
   const [name, setName] = useState("");
@@ -66,6 +67,7 @@ function Contact() {
   };
 
   return (
+    <Container>
     <div className="mt-[100px] flex flex-col justify-center items-center overflow-hidden">
       <div className=" text-4xl text-darkRed font-[500] mb-32">
         <span>Contact Us</span>
@@ -146,9 +148,9 @@ function Contact() {
           </div>
         ))}
       </div>
-      <div class="relative flex flex-col md:flex-row  justify-center items-center md:space-x-16 bg-cover bg-center h-[302px] mt-20  bg-[url('/assets/images/contactImage.webp')]  w-full ">
+      <div className="relative flex flex-col md:flex-row  justify-center items-center md:space-x-16 bg-cover bg-center h-[302px] mt-20  bg-[url('/assets/images/contactImage.webp')]  w-full ">
         <div className="absolute top-0 right-0 w-full h-full bg-blackBg bg-opacity-30" />
-        <div className="z-30  text-white  text-center">
+        {/* <div className="z-30  text-white  text-center">
           <h1 data-aos="fade-right" className="text-4xl mb-3 font-[500]">
             Before your appointment
           </h1>
@@ -161,7 +163,7 @@ function Contact() {
           className=" z-30 p-4 rounded-full text-white bg-redTitle bg-opacity-70 hover:bg-opacity-100 cursor-pointer"
         >
           <button>Download Intake Form</button>
-        </div>
+        </div> */}
       </div>
 
       <div className=" py-20 mb-20  bg-grayBg w-full flex justify-center items-center  ">
@@ -313,6 +315,7 @@ function Contact() {
         </div>
       </div>
     </div>
+    </Container>
   );
 }
 
