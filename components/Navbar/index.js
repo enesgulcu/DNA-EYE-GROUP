@@ -50,7 +50,10 @@ function Navbar() {
               alt="DNA Eye Group Logo"
               width={40}
               height={40}
-              className="cursor-pointer hidden sm:block" // Hide on extra-small screens if needed
+              className="cursor-pointer w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12"
+              // Mobile: 2rem (w-8/h-8)
+              // Small screens: 2.5rem (w-10/h-10)
+              // Medium and larger: 3rem (w-12/h-12)
             />
           </Link>
         </div>
@@ -58,11 +61,10 @@ function Navbar() {
           {menuItems.map((item) => (
             <Link href={item.linkPath} key={item.linkPath}>
               <span
-                className={`text-grayHead cursor-pointer md:block hidden scale-90 hover:scale-100 hover:duration-500 duration-300 ${
-                  selectedItem === item.name
+                className={`text-grayHead cursor-pointer md:block hidden scale-90 hover:scale-100 hover:duration-500 duration-300 ${selectedItem === item.name
                     ? "border-b-2 pb-2 border-grayHead"
                     : ""
-                }`}
+                  }`}
                 onClick={() => {
                   handleClickSessionItem(item.name);
                 }}
