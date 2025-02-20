@@ -14,12 +14,12 @@ function Footer() {
   const handleOpenModalClick = () => {
     setOpenApplicationModal(!openApplicationModal);
   };
+
   return (
     <Container>
       <div
-        className={`relative bg-footer-bg-mobile md:bg-footer-bg bg-cover h-[613px] md:mt-32 ${
-          openApplicationModal ? "blur-md" : ""
-        }`}
+        className={`relative bg-footer-bg-mobile md:bg-footer-bg bg-cover h-[613px] md:mt-32 ${openApplicationModal ? "blur-md" : ""
+          }`}
       >
         <div className="absolute bg-grayHead bg-opacity-5 rounded-full md:p-10 w-28 h-28 md:w-80 md:h-80 flex justify-center items-center md:right-14 top-0 right-[34%] mt-[-50px] md:mt-[-110px]">
           <div className="absolute bg-grayHead bg-opacity-10 rounded-full md:p-10 w-24 h-24 md:w-72 md:h-72 flex justify-center items-center">
@@ -103,7 +103,7 @@ function Footer() {
               connect
             </h1>
           </div>
-      
+
           <div className="mt-6 ">
             <Link href="https://www.linkedin.com/">
               <div className="flex bg-linkedinLogo p-2 mb-4 text-grayIcon space-x-1 rounded">
@@ -143,15 +143,30 @@ function Footer() {
             >
               Career Opportunities
             </div>
-            {/* Responsiveness for Terms & Conditions, Privacy Policy */}
+            {/* Responsiveness for navigation links */}
             <div className="mt-4 flex flex-col items-center text-grayIcon space-y-2">
+              <Link href="/about">
+                <p className="cursor-pointer hover:underline hover:text-darkRed drop-shadow-lg transition-all duration-300 py-2 rounded text-center">
+                  About
+                </p>
+              </Link>
+              <Link href="/team">
+                <p className="cursor-pointer hover:underline hover:text-darkRed drop-shadow-lg transition-all duration-300 py-2 rounded text-center">
+                  Team
+                </p>
+              </Link>
+              <Link href="/reviews">
+                <p className="cursor-pointer hover:underline hover:text-darkRed drop-shadow-lg transition-all duration-300 py-2 rounded text-center">
+                  Reviews
+                </p>
+              </Link>
               <Link href="/our-terms">
-                <p className="cursor-pointer hover:underline hover:text-darkRed">
+                <p className="cursor-pointer hover:underline hover:text-darkRed drop-shadow-lg transition-all duration-300 py-2 rounded text-center">
                   Terms &amp; Conditions
                 </p>
               </Link>
               <Link href="/your-privacy">
-                <p className="cursor-pointer hover:underline hover:text-darkRed">
+                <p className="cursor-pointer hover:underline hover:text-darkRed drop-shadow-lg transition-all duration-300 py-2 rounded text-center">
                   Privacy Policy
                 </p>
               </Link>
