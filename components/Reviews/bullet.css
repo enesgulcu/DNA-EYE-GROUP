@@ -1,0 +1,31 @@
+.pagination .swiper-pagination-bullet{
+    background-color: #7f2929;
+    height: 7px;
+    
+    border-radius: 25px;
+  }
+  .pagination .swiper-pagination-bullet-active{
+    width: 20px;
+    
+  }
+
+  .pagi .swiper-pagination-bullet{
+    background-color: #7f2929;
+    height: 7px;
+    
+    border-radius: 25px;
+  }
+  .pagi .swiper-pagination-bullet-active{
+    width: 20px;
+    
+  }
+  .pagination2 .swiper-pagination-bullet{
+    background-color: #7f2929;
+    height: 7px;
+    
+    border-radius: 25px;
+  }
+  .pagination2 .swiper-pagination-bullet-active{
+    width: 20px;
+    
+  }
