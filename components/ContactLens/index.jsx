@@ -21,7 +21,7 @@ function ContactLens() {
   useEffect(() => {
     Aos.init();
   }, []);
-
+ 
   const submitHandler = async (e) => {
     e.preventDefault();
 
@@ -240,16 +240,45 @@ function ContactLens() {
                 />
                 <label
                   htmlFor="checkbox-2"
-                  className={`ms-2  font-medium  ${
-                    checkWarning && !checked
-                      ? "text-red-500 text-md"
-                      : "text-gray-500 text-sm"
-                  }`}
+                  className={`ms-2  font-medium  ${checkWarning && !checked
+                    ? "text-red-500 text-md"
+                    : "text-gray-500 text-sm"
+                    }`}
                 >
                   I allow this website to store my submission so they can
                   respond to my inquiry.
                 </label>
               </div>
+              <div className="flex items-center mb-4">
+                <input
+                  value={checked}
+                  onChange={(e) => {
+                    checked == true ? setChecked(false) : setChecked(true);
+                  }}
+                  id="checkbox-2"
+                  type="checkbox"
+                  className="w-4 h-4 text-redTitle  border-gray-300 rounded focus:ring-redTitle focus:ring-2"
+                />
+                <label
+                  htmlFor="checkbox-2"
+                  className={`ms-2 font-medium ${checkWarning && !checked ? "text-red-500 text-md" : "text-gray-500 text-sm"
+                    }`}
+                >
+                  By checking this box, you consent to receive texts from DNA Eye Group relating to customer care messages and booking appointments. Standard messaging and/or data rates may apply. Message frequency varies. Text STOP to cancel. Text HELP for help.
+                  <a href="/your-privacy" className="text-blue-500 underline ms-1">
+                    Privacy Policy
+                  </a>
+                  and
+                  <a href="/our-terms" className="text-blue-500 underline ms-1">
+                    Terms of Use
+                  </a>.
+                </label>
+
+              </div>
+              <p className="text-gray-500 text-sm mt-2 mb-2">
+                I consent to this website storing my submission in order to facilitate a response to my inquiry.
+              </p>
+
               {/* Button */}
               <button
                 onClick={submitHandler}
