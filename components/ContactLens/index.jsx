@@ -17,25 +17,29 @@ function ContactLens() {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
+  const [checkedConsent, setCheckedConsent] = useState(false);
+  const [checkedTextConsent, setCheckedTextConsent] = useState(false);
   const [checkWarning, setCheckWarning] = useState(false);
   useEffect(() => {
     Aos.init();
   }, []);
- 
+
   const submitHandler = async (e) => {
     e.preventDefault();
 
-    // toast laoding start
-    const emailMessage = `
-    From Web, Contact Lens Form:
-    Name: ${name},
-    Expiration Date: ${expDate},
-    Brand: ${brand},
-    Phone Number: ${phoneNumber},
-    Email: ${email},
-    message: ${message}
-    `;
-    if (checked) {
+    if (checkedConsent && checkedTextConsent) {
+      setCheckWarning(false);
+
+      const emailMessage = `
+      From Web, Contact Lens Form:
+      Name: ${name},
+      Expiration Date: ${expDate},
+      Brand: ${brand},
+      Phone Number: ${phoneNumber},
+      Email: ${email},
+      message: ${message}
+      `;
+
       const notification = startLoadingNotification("Sending Message...");
       await fetch("/api/send-mail", {
         method: "POST",
@@ -47,7 +51,8 @@ function ContactLens() {
         .then((resp) => resp.json())
         .then((resp) => {
           if (resp.success) {
-            setChecked(false);
+            setCheckedConsent(false);
+            setCheckedTextConsent(false);
             setName("");
             setBrand("");
             setPhoneNumber("");
@@ -67,8 +72,6 @@ function ContactLens() {
         .catch((er) => {
           endLoadingNotification(notification, "error", "Error!: " + er);
         });
-
-      setCheckWarning(false);
     } else {
       setCheckWarning(true);
     }
@@ -227,41 +230,35 @@ function ContactLens() {
                   placeholder="Enter your message..."
                 ></textarea>
               </div>
-              {/* CheckBox */}
+              {/* First Checkbox */}
               <div className="flex items-center mb-4">
                 <input
-                  value={checked}
-                  onChange={(e) => {
-                    checked == true ? setChecked(false) : setChecked(true);
-                  }}
-                  id="checkbox-2"
+                  checked={checkedConsent}
+                  onChange={(e) => setCheckedConsent(e.target.checked)}
+                  id="checkbox-consent"
                   type="checkbox"
-                  className="w-4 h-4 text-redTitle  border-gray-300 rounded focus:ring-redTitle focus:ring-2"
+                  className="w-4 h-4 text-redTitle border-gray-300 rounded focus:ring-redTitle focus:ring-2"
                 />
                 <label
-                  htmlFor="checkbox-2"
-                  className={`ms-2  font-medium  ${checkWarning && !checked
-                    ? "text-red-500 text-md"
-                    : "text-gray-500 text-sm"
+                  htmlFor="checkbox-consent"
+                  className={`ms-2 font-medium ${checkWarning && !checkedConsent ? "text-red-500 text-md" : "text-gray-500 text-sm"
                     }`}
                 >
-                  I allow this website to store my submission so they can
-                  respond to my inquiry.
+                  I allow this website to store my submission so they can respond to my inquiry.
                 </label>
               </div>
+              {/* Second Checkbox */}
               <div className="flex items-center mb-4">
                 <input
-                  value={checked}
-                  onChange={(e) => {
-                    checked == true ? setChecked(false) : setChecked(true);
-                  }}
-                  id="checkbox-2"
+                  checked={checkedTextConsent}
+                  onChange={(e) => setCheckedTextConsent(e.target.checked)}
+                  id="checkbox-text-consent"
                   type="checkbox"
-                  className="w-4 h-4 text-redTitle  border-gray-300 rounded focus:ring-redTitle focus:ring-2"
+                  className="w-4 h-4 text-redTitle border-gray-300 rounded focus:ring-redTitle focus:ring-2"
                 />
                 <label
-                  htmlFor="checkbox-2"
-                  className={`ms-2 font-medium ${checkWarning && !checked ? "text-red-500 text-md" : "text-gray-500 text-sm"
+                  htmlFor="checkbox-text-consent"
+                  className={`ms-2 font-medium ${checkWarning && !checkedTextConsent ? "text-red-500 text-md" : "text-gray-500 text-sm"
                     }`}
                 >
                   By checking this box, you consent to receive texts from DNA Eye Group relating to customer care messages and booking appointments. Standard messaging and/or data rates may apply. Message frequency varies. Text STOP to cancel. Text HELP for help.
@@ -273,7 +270,6 @@ function ContactLens() {
                     Terms of Use
                   </a>.
                 </label>
-
               </div>
               <p className="text-gray-500 text-sm mt-2 mb-2">
                 I consent to this website storing my submission in order to facilitate a response to my inquiry.
