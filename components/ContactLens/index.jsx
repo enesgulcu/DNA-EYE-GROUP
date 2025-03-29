@@ -43,9 +43,17 @@ function ContactLens() {
       const notification = startLoadingNotification("Sending Message...");
       await fetch("/api/send-mail", {
         method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
         body: JSON.stringify({
-          emailMessage,
           subject: "Website - Contact Lens",
+          name,
+          expDate,
+          brand,
+          phoneNumber,
+          email,
+          message
         }),
       })
         .then((resp) => resp.json())
