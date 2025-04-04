@@ -12,7 +12,7 @@ export default async function handler(req, res) {
     const { subject, name, phoneNumber, email, message, expDate, brand } = req.body;
 
     const response = await resend.emails.send({
-      from: `Contact Form <${process.env.RESEND_FROM_EMAIL}>`,
+      from: `Contact Form <onboarding@resend.dev>`,
       to: [process.env.RECEIVER_EMAIL],
       subject,
       reply_to: email,

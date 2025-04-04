@@ -27,18 +27,8 @@ function ContactLens() {
   const submitHandler = async (e) => {
     e.preventDefault();
 
-    if (checkedConsent && checkedTextConsent) {
+    if (checkedConsent) {
       setCheckWarning(false);
-
-      const emailMessage = `
-      From Web, Contact Lens Form:
-      Name: ${name},
-      Expiration Date: ${expDate},
-      Brand: ${brand},
-      Phone Number: ${phoneNumber},
-      Email: ${email},
-      message: ${message}
-      `;
 
       const notification = startLoadingNotification("Sending Message...");
       await fetch("/api/send-mail", {
@@ -266,7 +256,7 @@ function ContactLens() {
                 />
                 <label
                   htmlFor="checkbox-text-consent"
-                  className={`ms-2 font-medium ${checkWarning && !checkedTextConsent ? "text-red-500 text-md" : "text-gray-500 text-sm"
+                  className={`ms-2 font-medium text-gray-500 text-sm"
                     }`}
                 >
                   By checking this box, you consent to receive texts from DNA Eye Group relating to customer care messages and booking appointments. Standard messaging and/or data rates may apply. Message frequency varies. Text STOP to cancel. Text HELP for help.
