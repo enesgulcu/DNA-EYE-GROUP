@@ -1,45 +1,43 @@
-import { mailOptions, transporter } from "@/lib/nodemailer";
+import { Resend } from "resend";
+import { EmailTemplate } from "@/components/EmailTemplate";
 
-const handler = async (req, res) => {
-  if (req.method === "POST") {
-    try {
-      const { emailMessage, subject, attachments } = JSON.parse(req.body);
+const resend = new Resend(process.env.RESEND_API_KEY);
 
-      // bkz. https://stackoverflow.com/questions/21934667/how-to-attach-file-to-an-email-with-nodemailer
-      //  attachment: {
-      //   filename: "image.jpg",
-      //   path: "./path/to/image.jpg",
-      // },
-
-      const info = await transporter.sendMail({
-        ...mailOptions,
-        attachments: attachments,
-        subject: subject,
-        text: emailMessage,
-        to: process.env.RECEIVER_EMAIL,
-        createTime:
-          new Date().toLocaleDateString() +
-          " " +
-          new Date().toLocaleTimeString(),
-      });
-
-      return res.status(200).json({
-        status: "success",
-        success: true,
-        message: "Message Sent.",
-      });
-    } catch (error) {
-      return res
-        .status(500)
-        .json({ status: "error", success: false, message: error.message });
-    }
-  } else {
-    return res.status(405).json({
-      status: "error",
-      success: false,
-      message: "An Error Occured.",
-    });
+export default async function handler(req, res) {
+  if (req.method !== "POST") {
+    return res.status(405).json({ error: "Method Not Allowed" });
   }
-};
 
-export default handler;
+  try {
+    const { subject, name, phoneNumber, email, message, expDate, brand } = req.body;
+
+    const response = await resend.emails.send({
+      from: `Contact Form <onboarding@resend.dev>`,
+      to: [process.env.RECEIVER_EMAIL],
+      subject,
+      reply_to: email,
+      react: EmailTemplate({
+        name,
+        phoneNumber,
+        email,
+        message,
+        expDate,
+        brand
+      }),
+    });
+
+    if (response.error) {
+      console.error("Resend error:", response.error);
+      return res.status(400).json({ error: response.error });
+    }
+
+    const data = response.data;
+
+    console.log("Email sent:", data);
+    return res.status(200).json({ success: true, data });
+
+  } catch (err) {
+    console.error("Email send error:", err);
+    return res.status(500).json({ error: "Internal Server Error" });
+  }
+}
