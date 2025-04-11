@@ -1,30 +1,24 @@
-import { Resend } from "resend";
-import { EmailTemplate } from "@/components/EmailTemplate";
+import { transporter } from "@/lib/nodemailer";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
-export default async function handler(req, res) {
-  if (req.method !== "POST") {
-    return res.status(405).json({ error: "Method Not Allowed" });
-  }
-
+export default async function POST(req, res) {
   try {
     const { subject, name, phoneNumber, email, message, expDate, brand } = req.body;
 
-    const response = await resend.emails.send({
-      from: `Contact Form <onboarding@resend.dev>`,
-      to: [process.env.RECEIVER_EMAIL],
-      subject,
-      reply_to: email,
-      react: EmailTemplate({
-        name,
-        phoneNumber,
-        email,
-        message,
-        expDate,
-        brand
-      }),
+    const response = await transporter.sendMail({
+      from: `Contact Form <${process.env.SENDER_EMAIL}>`,
+      to: process.env.RECEIVER_EMAIL,
+      subject: subject,
+      html: `
+      <p>From Web, Contact Form:</p>
+      <p>Name: ${name},</p>
+      ${expDate ? `<p>Expiration Date: ${expDate}</p>` : ""}
+      ${brand ? `<p>Brand: ${brand},</p>` : ""}
+      <p>Phone Number: ${phoneNumber},</p>
+      <p>Email: ${email},</p>
+      <p>Message: ${message}</p>
+      `
     });
+    console.log(response);
 
     if (response.error) {
       console.error("Resend error:", response.error);
