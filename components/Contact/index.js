@@ -32,7 +32,7 @@ function Contact() {
           "Content-Type": "application/json"
         },
         body: JSON.stringify({
-          subject: "Website - Contact Form",
+          subject: "Contact Form",
           name,
           email,
           phoneNumber,

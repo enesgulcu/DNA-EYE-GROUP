@@ -37,7 +37,7 @@ function ContactLens() {
           "Content-Type": "application/json"
         },
         body: JSON.stringify({
-          subject: "Website - Contact Lens",
+          subject: "Contact Lens",
           name,
           expDate,
           brand,

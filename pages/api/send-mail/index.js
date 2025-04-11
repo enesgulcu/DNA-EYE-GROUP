@@ -7,9 +7,9 @@ export default async function POST(req, res) {
     const response = await transporter.sendMail({
       from: `Contact Form <${process.env.SENDER_EMAIL}>`,
       to: process.env.RECEIVER_EMAIL,
-      subject: subject,
+      subject: `Website - ${subject}`,
       html: `
-      <p>From Web, Contact Form:</p>
+      <p>From Web, ${subject}:</p>
       <p>Name: ${name},</p>
       ${expDate ? `<p>Expiration Date: ${expDate}</p>` : ""}
       ${brand ? `<p>Brand: ${brand},</p>` : ""}
