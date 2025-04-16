@@ -68,7 +68,7 @@ function ContactLens() {
           }
         })
         .catch((er) => {
-          endLoadingNotification(notification, "error", "Error!: " + er + er.message);
+          endLoadingNotification(notification, "error", "Error!: " + er.error);
         });
     } else {
       setCheckWarning(true);

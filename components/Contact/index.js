@@ -59,7 +59,7 @@ function Contact() {
           }
         })
         .catch((er) => {
-          endLoadingNotification(notification, "error", "Error!: " + er.error + er.message);
+          endLoadingNotification(notification, "error", "Error!: " + er.error);
         });
     } else {
       setCheckWarning(true);
