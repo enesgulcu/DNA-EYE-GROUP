@@ -32,6 +32,6 @@ export default async function POST(req, res) {
 
   } catch (err) {
     console.error("Email send error:", err);
-    return res.status(500).json({ error: "Internal Server Error" });
+    return res.status(500).json({ error: "Internal Server Error", message: err.message});
   }
 }
