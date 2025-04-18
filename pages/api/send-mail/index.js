@@ -5,8 +5,8 @@ export default async function POST(req, res) {
     const { subject, name, phoneNumber, email, message, expDate, brand } = req.body;
 
     const response = await transporter.sendMail({
-      from: `Contact Form <${process.env.SENDER_EMAIL}>`,
-      to: process.env.RECEIVER_EMAIL,
+      from: `Contact Form <${process.env.SENDER_EMAIL || "dnaclsales@gmail.com"}>`,
+      to: process.env.RECEIVER_EMAIL || "dnaclsales@gmail.com",
       subject: `Website - ${subject}`,
       html: `
       <p>From Web, ${subject}:</p>
@@ -31,7 +31,7 @@ export default async function POST(req, res) {
     return res.status(200).json({ success: true, data });
 
   } catch (err) {
-    console.error("Email send error:", err);
+    console.error("Email send error:", err.message || err);
     return res.status(500).json({ error: "Internal Server Error", message: err.message});
   }
 }
