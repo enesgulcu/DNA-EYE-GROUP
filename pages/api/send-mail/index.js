@@ -3,11 +3,7 @@ import { transporter } from "@/lib/nodemailer";
 export default async function POST(req, res) {
   try {
     const { subject, name, phoneNumber, email, message, expDate, brand } = req.body;
-    console.log("Received data:", req.body);
-    console.log("Sender email:", process.env.SENDER_EMAIL);
-    console.log("Receiver email:", process.env.RECEIVER_EMAIL);
-    console.log("Sender password:", process.env.SENDER_EMAIL_PASSWORD);
-  
+    
     const response = await transporter.sendMail({
       from: `Contact Form <${process.env.SENDER_EMAIL || "dnaclsales@gmail.com"}>`,
       to: process.env.RECEIVER_EMAIL || "dnaclsales@gmail.com",
