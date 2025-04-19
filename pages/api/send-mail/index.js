@@ -1,4 +1,4 @@
-import { transporter } from "@/lib/nodemailer";
+import nodemailer from 'nodemailer';
 
 export default async function handler(req, res) {
   // Sadece POST isteklerini kabul et
@@ -10,15 +10,22 @@ export default async function handler(req, res) {
     // Environment variables kontrolü
     if (!process.env.SENDER_EMAIL || !process.env.SENDER_EMAIL_PASSWORD) {
       console.error("Email credentials are missing");
-      return res.status(500).json({ 
-        success: false, 
-        message: "Server configuration error", 
-        error: "Missing email credentials" 
+      return res.status(500).json({
+        success: false,
+        message: "Server configuration error",
+        error: "Missing email credentials"
       });
     }
 
+    const transporter = nodemailer.createTransport({
+      service: "gmail",
+      auth: {
+        user: process.env.SENDER_EMAIL,
+        pass: process.env.SENDER_EMAIL_PASSWORD,
+      },
+    });
+
     const { subject, name, phoneNumber, email, message, expDate, brand } = req.body;
-    
     // Gerekli alanları kontrol et
     if (!email || !name) {
       return res.status(400).json({ success: false, message: 'Email and name are required' });
@@ -42,18 +49,18 @@ export default async function handler(req, res) {
 
     // E-posta gönderme işlemi
     const info = await transporter.sendMail(mailData);
-    
+
     console.log("Email sent successfully:", info.messageId);
-    
-    return res.status(200).json({ 
-      success: true, 
+
+    return res.status(200).json({
+      success: true,
       message: "Email sent successfully",
       messageId: info.messageId
     });
 
   } catch (error) {
     console.error("Email send error:", error);
-    
+
     // Hata detaylarını logla
     if (error.code) {
       console.error("Error code:", error.code);
@@ -61,10 +68,10 @@ export default async function handler(req, res) {
     if (error.command) {
       console.error("Failed command:", error.command);
     }
-    
-    return res.status(500).json({ 
-      success: false, 
-      message: "Failed to send email", 
+
+    return res.status(500).json({
+      success: false,
+      message: "Failed to send email",
       error: error.message,
       code: error.code
     });
