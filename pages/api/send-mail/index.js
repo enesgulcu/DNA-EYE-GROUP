@@ -7,7 +7,17 @@ export default async function handler(req, res) {
   }
 
   try {
-    const { subject, name, phoneNumber, email, message, expDate, brand, emailMessage, attachments } = req.body;
+    // Environment variables kontrolü
+    if (!process.env.SENDER_EMAIL || !process.env.SENDER_EMAIL_PASSWORD) {
+      console.error("Email credentials are missing");
+      return res.status(500).json({ 
+        success: false, 
+        message: "Server configuration error", 
+        error: "Missing email credentials" 
+      });
+    }
+
+    const { subject, name, phoneNumber, email, message, expDate, brand } = req.body;
     
     // Gerekli alanları kontrol et
     if (!email || !name) {
@@ -16,10 +26,10 @@ export default async function handler(req, res) {
 
     // E-posta gönderme işlemi
     const mailData = {
-      from: `Contact Form <${process.env.SENDER_EMAIL || "dnaclsales@gmail.com"}>`,
-      to: process.env.RECEIVER_EMAIL || "dnaclsales@gmail.com",
+      from: `DNA Eye Group <${process.env.SENDER_EMAIL}>`,
+      to: process.env.RECEIVER_EMAIL || process.env.SENDER_EMAIL,
       subject: `Website - ${subject || 'Contact Form'}`,
-      html: emailMessage || `
+      html: `
       <p>From Web, ${subject || 'Contact Form'}:</p>
       <p>Name: ${name},</p>
       ${expDate ? `<p>Expiration Date: ${expDate}</p>` : ""}
@@ -29,11 +39,6 @@ export default async function handler(req, res) {
       <p>Message: ${message || 'No message provided'}</p>
       `
     };
-
-    // Eğer ekler varsa ekle
-    if (attachments && attachments.length > 0) {
-      mailData.attachments = attachments;
-    }
 
     // E-posta gönderme işlemi
     const info = await transporter.sendMail(mailData);
@@ -60,7 +65,8 @@ export default async function handler(req, res) {
     return res.status(500).json({ 
       success: false, 
       message: "Failed to send email", 
-      error: error.message 
+      error: error.message,
+      code: error.code
     });
   }
 }
