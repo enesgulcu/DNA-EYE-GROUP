@@ -1,144 +1,79 @@
+// components/ChatWidget/index.js
 "use client";
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 
-function ChatWidget() {
-  const basicOptions = {
-    rootUrl: "https://app.five9.com/consoles/",
-    type: "chat",
-    title: "DNA Eye Group",
-    tenant: "DNA Eye Group",
-    profiles: "Chat",
-    showProfiles: true,
-    autostart: true,
-    theme: "default-theme.css",
-    surveyOptions: {
-      showComment: true,
-      requireComment: false,
-    },
-    fields: {
-      name: {
-        value: "",
-        show: true,
-        label: "Name",
-      },
-      email: {
-        value: "",
-        show: true,
-        label: "Email",
-      },
-      UserLocale: {
-        value: "en",
-        show: false,
-      },
-    },
-    playSoundOnMessage: true,
-    allowCustomerToControlSoundPlay: false,
-    showEmailButton: false,
-    hideDuringAfterHours: true,
-    useBusinessHours: false,
-    showPrintButton: false,
-    allowUsabilityMenu: false,
-    enableCallback: false,
-    callbackList: "",
-    allowRequestLiveAgent: false,
-  };
-  const proactiveOptions = {
-    tenant: "DNA Eye Group",
-    title: "DNA Eye Group",
-    showProfiles: true,
-    restAPI: "https://app.five9.com",
-    chatConsole: "https://app.five9.com/consoles/ChatConsole/index.html",
-    notificationType: "notification",
-    customChatFields: {
-      name: {
-        value: "",
-        show: true,
-        label: "Name",
-      },
-      email: {
-        value: "",
-        show: true,
-        label: "Email",
-      },
-      UserLocale: {
-        value: "en",
-        show: false,
-      },
-    },
-    chatOptions: {
-      allowRequestLiveAgent: false,
-      showEmailButton: false,
-      hideDuringAfterHours: true,
-      useBusinessHours: false,
-      enableCallback: false,
-      callbackList: "",
-      showPrintButton: false,
-      playSoundOnMessage: true,
-      allowCustomerToControlSoundPlay: false,
-      allowUsabilityMenu: false,
-    },
-  };
-  const parameters = {
-    pageId: "",
-    profiles: "Chat",
-  };
-
-  const widgetContainer = React.useRef(null);
+export default function ChatWidget() {
+  const ref = useRef(null);
+  const theme = "https://app.five9.com/consoles/Common/css/themes/default-theme.css";
 
   useEffect(() => {
-    // five9 stillerini head e ekler
+    const link = document.createElement("link");
+    link.rel = "stylesheet";
+    link.href = theme;
+    document.head.appendChild(link);
 
-    const styleTag = document.createElement("style");
-    styleTag.innerHTML = `
-        .five9-chat-button {
-            font-size: 24px !important;
-            width: 320px !important;
-        }
-        .five9-text::after {
-            content: " Now" !important;
-        }
-        #five9-popout-button {
-            float: right;
-        }
-        #five9-minimize-icon {
-            margin: 0px 0px 0px 90px !important;
-        }
-        .five9-frame {
-            right: 10px !important; 
-        }
+    const style = document.createElement("style");
+    style.innerHTML = `
+      #five9-widget-container {
+        bottom: 0 !important;
+        right: 0 !important;
+        overflow: visible !important;
+        width: auto !important;
+        height: auto !important;
+      }
+      .five9-frame {
+        bottom: 0 !important;
+        right: 0 !important;
+      }
+      .five9-chat-button {
+        font-size: 24px !important;
+        width: 320px !important;
+        margin-bottom: 0 !important;
+        height: 40px !important;
+      }
+      .five9-text::after {
+        content: " Now" !important;
+      }
     `;
-    document.head.appendChild(styleTag);
+    document.head.appendChild(style);
 
-    // five9 ProactiveChat scriptini componente ekler
-    const proactiveChat = document.createElement("script");
-    proactiveChat.src =
-      "https://app.five9.com/consoles/ProactiveChat/javascripts/five9proactivechat.js";
-    proactiveChat.async = true;
-    proactiveChat.onload = () => {
-      window.Five9ProactiveChat.init(proactiveOptions);
-      window.Five9ProactiveChat.startNewPage(parameters);
+    const s = document.createElement("script");
+    s.src = "https://app.five9.com/consoles/SocialWidget/five9-social-widget.min.js";
+    s.async = true;
+    s.onload = () => {
+      window.Five9SocialWidget?.addWidget({
+        rootUrl: "https://app.five9.com/consoles/",
+        type: "chat",
+        tenant: "DNA Eye Group",
+        title: "DNA Eye Group",
+        profiles: ["Chat"],
+        containerId: "five9-widget-container",
+        theme,
+        autostart: true,
+        showProfiles: true,
+        hideDuringAfterHours: false,
+      });
     };
-    widgetContainer.current.appendChild(proactiveChat);
-
-    // five9 socialWidget scriptini componente ekler
-    const socialWidget = document.createElement("script");
-    socialWidget.src =
-      "https://app.five9.com/consoles/SocialWidget/five9-social-widget.min.js";
-    socialWidget.async = true;
-    socialWidget.onload = () => {
-      window.Five9SocialWidget.addWidget(basicOptions);
-    };
-    widgetContainer.current.appendChild(socialWidget);
+    document.body.appendChild(s);
 
     return () => {
-      widgetContainer.current.removeChild(socialWidget);
-      widgetContainer.current.removeChild(proactiveChat);
+      document.head.removeChild(link);
+      document.head.removeChild(style);
+      document.body.removeChild(s);
     };
   }, []);
 
   return (
-    <div id="five9-widget-container" className=" " ref={widgetContainer}></div>
+    <div
+      id="five9-widget-container"
+      ref={ref}
+      style={{
+        position: "fixed",
+        bottom: 0,
+        right: 0,
+        overflow: "visible",
+        zIndex: 9999,
+      }}
+    />
   );
 }
-
-export default ChatWidget;
