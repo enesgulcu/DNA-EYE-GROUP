@@ -11,7 +11,7 @@ export const data = [
         "id": 2,
         "imagePath": "/assets/images/otherimg2.webp",
         "bgClass": "bg-otherFea2",
-        "title": "Glaoucoma Treatments",
+        "title": "Glaucoma Treatments",
         "cardImg": "/assets/images/othercard2.webp",
         "cardText": "Our glaucoma treatments mitigate sight-threatening conditions with medications."
     },

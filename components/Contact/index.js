@@ -5,7 +5,10 @@ import Link from "next/link";
 import Aos from "aos";
 import "aos/dist/aos.css";
 import Container from "../Container";
-import { startLoadingNotification, endLoadingNotification } from "@/globalElements/toast";
+import {
+  startLoadingNotification,
+  endLoadingNotification,
+} from "@/globalElements/toast";
 
 function Contact() {
   const [name, setName] = useState("");
@@ -29,14 +32,14 @@ function Contact() {
       await fetch("/api/send-mail", {
         method: "POST",
         headers: {
-          "Content-Type": "application/json"
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({
           subject: "Contact Form",
           name,
           email,
           phoneNumber,
-          message
+          message,
         }),
       })
         .then((resp) => resp.json())
@@ -203,7 +206,7 @@ function Contact() {
                     name="floating_first_name"
                     id="floating_first_name"
                     className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none  focus:outline-none focus:ring-0 focus:border-redTitle peer"
-                    placeholder=" "
+                    placeholder=""
                     required
                   />
                   <label
@@ -226,7 +229,7 @@ function Contact() {
                     name="floating_email"
                     id="floating_email"
                     className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-redTitle peer"
-                    placeholder=" "
+                    placeholder=""
                     required
                   />
                   <label
@@ -251,7 +254,7 @@ function Contact() {
                     name="floating_phone"
                     id="floating_phone"
                     className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none  focus:outline-none focus:ring-0 focus:border-redTitle peer"
-                    placeholder=" "
+                    placeholder=""
                     required
                   />
                   <label
@@ -293,10 +296,11 @@ function Contact() {
                   />
                   <label
                     htmlFor="checkbox-2"
-                    className={`ms-2  font-medium  ${checkWarning && !checked
+                    className={`ms-2  font-medium  ${
+                      checkWarning && !checked
                         ? "text-red-500 text-md"
                         : "text-gray-500 text-sm"
-                      }`}
+                    }`}
                   >
                     I allow this website to store my submission so they can
                     respond to my inquiry.

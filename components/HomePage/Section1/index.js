@@ -58,6 +58,7 @@ function Section1() {
                   <div data-aos="fade-up" className="shadow-2xl hover:cursor-pointer rounded-2xl p-4">
                     <img className="mb-5 rounded-lg" src={item.cardImage} alt="" />
                     <span className="hidden md:block">{item.cardText}</span>
+                    {/* cardText data is removed */}
                     <span className="block md:hidden text-center">{item.text}</span>
                   </div>
 

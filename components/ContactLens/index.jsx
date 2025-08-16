@@ -34,7 +34,7 @@ function ContactLens() {
       await fetch("/api/send-mail", {
         method: "POST",
         headers: {
-          "Content-Type": "application/json"
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({
           subject: "Contact Lens",
@@ -43,7 +43,7 @@ function ContactLens() {
           brand,
           phoneNumber,
           email,
-          message
+          message,
         }),
       })
         .then((resp) => resp.json())
@@ -114,7 +114,7 @@ function ContactLens() {
                   name="floating_first_name"
                   id="floating_first_name"
                   className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none  focus:outline-none focus:ring-0 focus:border-redTitle peer"
-                  placeholder=" "
+                  placeholder=""
                   required
                 />
                 <label
@@ -135,7 +135,7 @@ function ContactLens() {
                   name="floating_rx_expiration_date"
                   id="floating_rx_expiration_date"
                   className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-redTitle peer"
-                  placeholder=" "
+                  placeholder=""
                   required
                 />
                 <label
@@ -156,7 +156,7 @@ function ContactLens() {
                   name="floating_brand_of_contact_lens"
                   id="floating_brand_of_contact_lens"
                   className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none  focus:outline-none focus:ring-0 focus:border-redTitle peer"
-                  placeholder=" "
+                  placeholder=""
                   required
                 />
                 <label
@@ -199,7 +199,7 @@ function ContactLens() {
                   name="floating_email"
                   id="floating_email"
                   className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none  focus:outline-none focus:ring-0 focus:border-redTitle peer"
-                  placeholder=" "
+                  placeholder=""
                   required
                 />
                 <label
@@ -239,10 +239,14 @@ function ContactLens() {
                 />
                 <label
                   htmlFor="checkbox-consent"
-                  className={`ms-2 font-medium ${checkWarning && !checkedConsent ? "text-red-500 text-md" : "text-gray-500 text-sm"
-                    }`}
+                  className={`ms-2 font-medium ${
+                    checkWarning && !checkedConsent
+                      ? "text-red-500 text-md"
+                      : "text-gray-500 text-sm"
+                  }`}
                 >
-                  I allow this website to store my submission so they can respond to my inquiry.
+                  I allow this website to store my submission so they can
+                  respond to my inquiry.
                 </label>
               </div>
               {/* Second Checkbox */}
@@ -259,20 +263,28 @@ function ContactLens() {
                   className={`ms-2 font-medium text-gray-500 text-sm"
                     }`}
                 >
-                  By checking this box, you consent to receive texts from DNA Eye Group relating to customer care messages and booking appointments. Standard messaging and/or data rates may apply. Message frequency varies. Text STOP to cancel. Text HELP for help.
-                  <a href="/your-privacy" className="text-blue-500 underline ms-1">
+                  By checking this box, you consent to receive texts from DNA
+                  Eye Group relating to customer care messages and booking
+                  appointments. Standard messaging and/or data rates may apply.
+                  Message frequency varies. Text STOP to cancel. Text HELP for
+                  help.
+                  <a
+                    href="/your-privacy"
+                    className="text-blue-500 underline ms-1"
+                  >
                     Privacy Policy
                   </a>
                   and
                   <a href="/our-terms" className="text-blue-500 underline ms-1">
                     Terms of Use
-                  </a>.
+                  </a>
+                  .
                 </label>
               </div>
               <p className="text-gray-500 text-sm mt-2 mb-2">
-                I consent to this website storing my submission in order to facilitate a response to my inquiry.
+                I consent to this website storing my submission in order to
+                facilitate a response to my inquiry.
               </p>
-
               {/* Button */}
               <button
                 onClick={submitHandler}

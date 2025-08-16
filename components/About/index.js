@@ -18,10 +18,7 @@ function About() {
           <span data-aos="fade-down" className="font-[500]  mb-5">
             Your eyes deserve the best
           </span>
-          <span
-            data-aos="fade-left"
-            className="md:text-5xl text-3xl font-libre-bodoni"
-          >
+          <span data-aos="fade-left" className="md:text-5xl text-3xl font-libre-bodoni">
             We will be there every step of the way
           </span>
         </div>
@@ -43,12 +40,7 @@ function About() {
             className="aspect-square md:ml-10"
           >
             <div className="relative md:w-80 md:h-80">
-              <Image
-                src="/assets/images/about1.webp"
-                alt=""
-                width={500}
-                height={500}
-              />
+              <Image src="/assets/images/about1.webp" alt="" width={500} height={500} />
             </div>
           </div>
         </div>
@@ -57,22 +49,17 @@ function About() {
         <div className="absolute top-0 right-0 w-full h-full bg-blackBg bg-opacity-35" />
         <div className=" flex  justify-center items-center h-full">
           <div className="md:w-[50%] flex flex-col z-30 text-center font-libre-bodoni">
-            <span
-              data-aos="fade-down"
-              className="text-white text-lg font-bold p-2"
-            >
+            <span data-aos="fade-down" className="text-white text-lg font-bold p-2">
               {data.title3}
             </span>
-            <span
-              data-aos="fade-up"
-              className="text-white md:text-5xl text-2xl mt-5 p-2"
-            >
+            <span data-aos="fade-up" className="text-white md:text-5xl text-2xl mt-5 p-2">
               {data.title4}
             </span>
             <div data-aos="zoom-in" data-aos-duration="1000">
-              <button className="mt-10 border p-3 rounded-full bg-blueEye bg-opacity-80 hover:bg-opacity-100 cursor-pointer text-white">
+              {/* button daha sonra altif edilecegi icin silinmedi yorum satirina alindi. */}
+              {/* <button className="mt-10 border p-3 rounded-full bg-blueEye bg-opacity-80 hover:bg-opacity-100 cursor-pointer text-white">
                 Book an Appointment
-              </button>
+              </button> */}
             </div>
           </div>
         </div>

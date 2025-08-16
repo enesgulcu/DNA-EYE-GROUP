@@ -1,12 +1,12 @@
-import About from '@/components/About'
-import React from 'react'
+import About from "@/components/About";
+import React from "react";
 
 function page() {
   return (
-   <>
-   <About/>
-   </>
-  )
+    <>
+      <About />
+    </>
+  );
 }
 
-export default page
+export default page;

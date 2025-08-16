@@ -109,13 +109,11 @@ function PrivacyPolicy() {
         </div>
 
         <div className="max-w-4xl mx-auto px-6 py-16">
-
           <p className="text-gray-600 leading-relaxed">
-            Mobile information will not be shared with third parties
-            or affiliates for marketing or promotional purposes.
-            The categories above exclude text messaging
-            originator opt-in data and consent; this information
-            will not be shared with any third parties.
+            Mobile information will not be shared with third parties or
+            affiliates for marketing or promotional purposes. The categories
+            above exclude text messaging originator opt-in data and consent;
+            this information will not be shared with any third parties.
           </p>
         </div>
 

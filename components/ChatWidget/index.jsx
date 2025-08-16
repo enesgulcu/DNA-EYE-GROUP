@@ -4,7 +4,8 @@ import React, { useEffect, useRef } from "react";
 
 export default function ChatWidget() {
   const ref = useRef(null);
-  const theme = "https://app.five9.com/consoles/Common/css/themes/default-theme.css";
+  const theme =
+    "https://app.five9.com/consoles/Common/css/themes/default-theme.css";
 
   useEffect(() => {
     const link = document.createElement("link");
@@ -38,7 +39,8 @@ export default function ChatWidget() {
     document.head.appendChild(style);
 
     const s = document.createElement("script");
-    s.src = "https://app.five9.com/consoles/SocialWidget/five9-social-widget.min.js";
+    s.src =
+      "https://app.five9.com/consoles/SocialWidget/five9-social-widget.min.js";
     s.async = true;
     s.onload = () => {
       window.Five9SocialWidget?.addWidget({

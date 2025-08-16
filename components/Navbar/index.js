@@ -61,10 +61,11 @@ function Navbar() {
           {menuItems.map((item) => (
             <Link href={item.linkPath} key={item.linkPath}>
               <span
-                className={`text-grayHead cursor-pointer md:block hidden scale-90 hover:scale-100 hover:duration-500 duration-300 ${selectedItem === item.name
+                className={`text-grayHead cursor-pointer md:block hidden scale-90 hover:scale-100 hover:duration-500 duration-300 ${
+                  selectedItem === item.name
                     ? "border-b-2 pb-2 border-grayHead"
                     : ""
-                  }`}
+                }`}
                 onClick={() => {
                   handleClickSessionItem(item.name);
                 }}

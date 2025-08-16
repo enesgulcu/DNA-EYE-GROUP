@@ -7,7 +7,7 @@ export const data = [
     "text": "Schedule Exam ",
     "bgClass": "bg-daire1-bg",
     "cardImage": "/assets/images/card1.webp",
-    "cardText": "Lorem ipsum dolor sit amet consectetur."
+    "cardText": ""
   },
   {
     "id": 2,
@@ -15,7 +15,7 @@ export const data = [
     "text": "Purchase Contact Lenses",
     "bgClass": "bg-daire2-bg",
     "cardImage": "/assets/images/card2.webp",
-    "cardText": "Lorem ipsum dolor sit amet consectetur."
+    "cardText": ""
   },
   {
     "id": 3,
@@ -23,6 +23,6 @@ export const data = [
     "text": " IPL Treatments",
     "bgClass": "bg-daire3-bg",
     "cardImage": "/assets/images/card3.webp",
-    "cardText": "Lorem ipsum dolor sit amet consectetur."
+    "cardText": ""
   }
 ];

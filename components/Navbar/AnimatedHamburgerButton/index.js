@@ -2,15 +2,13 @@ import React, { useState } from "react";
 import { motion, MotionConfig } from "framer-motion";
 
 function AnimatedHamburgerButton({ active, setActive }) {
-
   return (
-
     <MotionConfig
       transition={{
         duration: 0.5,
-        ease: 'easeInOut'
-      }}>
-
+        ease: "easeInOut",
+      }}
+    >
       <motion.button
         initial={false}
         onClick={() => setActive((pv) => !pv)}
@@ -27,15 +25,15 @@ function AnimatedHamburgerButton({ active, setActive }) {
           variants={{
             open: {
               rotate: ["0deg", "0deg", "45deg"],
-              top: ["35%", "50%", "50%"]
+              top: ["35%", "50%", "50%"],
             },
             closed: {
               rotate: ["45deg", "0deg", "0deg"],
-              top: ["50%", "50%", "35%"]
-            }
+              top: ["50%", "50%", "35%"],
+            },
           }}
-
-          className="absolute h-[3px] w-7 bg-white" />
+          className="absolute h-[3px] w-7 bg-white"
+        />
 
         <motion.span
           style={{
@@ -46,15 +44,12 @@ function AnimatedHamburgerButton({ active, setActive }) {
           }}
           variants={{
             open: {
-              rotate: ["0deg", "0deg", "-45deg"]
-
+              rotate: ["0deg", "0deg", "-45deg"],
             },
             closed: {
               rotate: ["-45deg", "0deg", "0deg"],
-
-            }
+            },
           }}
-
           className="absolute h-[3px] w-7 bg-white"
         />
 
@@ -69,19 +64,18 @@ function AnimatedHamburgerButton({ active, setActive }) {
             open: {
               rotate: ["0deg", "0deg", "45deg"],
               left: "50%",
-              bottom: ["35%", "50%", "50%"]
+              bottom: ["35%", "50%", "50%"],
             },
             closed: {
               rotate: ["45deg", "0deg", "0deg"],
               left: "calc(50% + 8px)",
-              bottom: ["50%", "50%", "35%"]
-            }
+              bottom: ["50%", "50%", "35%"],
+            },
           }}
-          className="absolute h-[3px] w-3 bg-white" />
+          className="absolute h-[3px] w-3 bg-white"
+        />
       </motion.button>
     </MotionConfig>
-
-
   );
 }
 

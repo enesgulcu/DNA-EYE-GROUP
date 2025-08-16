@@ -147,7 +147,7 @@ function OptometrichTech({
                       ? "border-red-500"
                       : "border-gray-300"
                   } appearance-none   focus:outline-none focus:ring-0 focus:border-redTitle peer`}
-                  placeholder=" "
+                  placeholder=""
                   required
                 />
                 <label
@@ -183,7 +183,7 @@ function OptometrichTech({
                       ? "border-red-500"
                       : "border-gray-300"
                   } appearance-none  focus:outline-none focus:ring-0 focus:border-redTitle peer`}
-                  placeholder=" "
+                  placeholder=""
                   required
                 />
                 <label
@@ -221,7 +221,7 @@ function OptometrichTech({
                     ? "border-red-500"
                     : "border-gray-300"
                 } appearance-none  focus:outline-none focus:ring-0 focus:border-redTitle peer`}
-                placeholder=" "
+                placeholder=""
                 required
               />
               <label
@@ -258,7 +258,7 @@ function OptometrichTech({
                     ? "border-red-500"
                     : "border-gray-300"
                 } appearance-none  focus:outline-none focus:ring-0 focus:border-redTitle peer`}
-                placeholder=" "
+                placeholder=""
                 required
               />
               <label
@@ -295,7 +295,7 @@ function OptometrichTech({
                     ? "border-red-500"
                     : "border-gray-300"
                 } appearance-none  focus:outline-none focus:ring-0 focus:border-redTitle peer`}
-                placeholder=" "
+                placeholder=""
                 required
               />
               <label

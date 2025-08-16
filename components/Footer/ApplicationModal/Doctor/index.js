@@ -144,7 +144,7 @@ function Doctor({ openDoctorModal, goBack, handleCloseModal }) {
                       ? "border-red-500"
                       : "border-gray-300"
                   } appearance-none   focus:outline-none focus:ring-0 focus:border-redTitle peer`}
-                  placeholder=" "
+                  placeholder=""
                   required
                 />
                 <label
@@ -180,7 +180,7 @@ function Doctor({ openDoctorModal, goBack, handleCloseModal }) {
                       ? "border-red-500"
                       : "border-gray-300"
                   } appearance-none  focus:outline-none focus:ring-0 focus:border-redTitle peer`}
-                  placeholder=" "
+                  placeholder=""
                   required
                 />
                 <label
@@ -218,7 +218,7 @@ function Doctor({ openDoctorModal, goBack, handleCloseModal }) {
                     ? "border-red-500"
                     : "border-gray-300"
                 } appearance-none  focus:outline-none focus:ring-0 focus:border-redTitle peer`}
-                placeholder=" "
+                placeholder=""
                 required
               />
               <label
@@ -255,7 +255,7 @@ function Doctor({ openDoctorModal, goBack, handleCloseModal }) {
                     ? "border-red-500"
                     : "border-gray-300"
                 } appearance-none  focus:outline-none focus:ring-0 focus:border-redTitle peer`}
-                placeholder=" "
+                placeholder=""
                 required
               />
               <label
@@ -292,7 +292,7 @@ function Doctor({ openDoctorModal, goBack, handleCloseModal }) {
                     ? "border-red-500"
                     : "border-gray-300"
                 } appearance-none  focus:outline-none focus:ring-0 focus:border-redTitle peer`}
-                placeholder=" "
+                placeholder=""
                 required
               />
               <label
