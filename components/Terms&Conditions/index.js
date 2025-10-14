@@ -86,6 +86,11 @@ function Terms() {
             Service.
             <br />
             <br />
+            <p className="text-red-500">
+             By providing your phone number you agree to receive account notification messages from DNA Eye Group. Message frequency varies. Message and data rates may apply. For help, you may call 
+             <a href="tel:18774362393" className="underline"> 1 (877) 436-2393</a>. You can opt out at any time by replying STOP.
+            </p>
+            <br />
             By way of example, and not as a limitation, you agree that when
             using a Communication Service, you will not post content that
             contains:
